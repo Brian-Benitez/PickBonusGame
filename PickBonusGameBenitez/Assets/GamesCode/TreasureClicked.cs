@@ -7,7 +7,7 @@ public class TreasureClicked : MonoBehaviour
 {
     [Header("Scripts")]
     public TextMeshProUGUI WinAmountText;
-    public GameSolver WinAmount;
+    public GameSolver WinAmount;//fix this.
     private decimal _dividedWMult;
     private decimal _finalFeatureAmount;
     public TextMeshProUGUI FeatMultText;
