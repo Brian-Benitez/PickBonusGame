@@ -12,8 +12,8 @@ public class TreasureClicked : MonoBehaviour
     public UIBehaviour UIBehaviour;
     public ParticleBehavior Particles;
     public MultiplierChestFeature MultiplerChests;
-    public ChestsController ChestController;
-    public DenominatonController DenomController;
+    public ChestController ChestController;
+    public DenominationController DenomController;
 
     private decimal _dividedWMult;
     private decimal _finalFeatureAmount;

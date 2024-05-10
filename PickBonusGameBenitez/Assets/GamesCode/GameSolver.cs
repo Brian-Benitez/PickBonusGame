@@ -34,7 +34,7 @@ public class GameSolver : MonoBehaviour
 
 
     [Header("Scripts")]
-    public DenominatonController DenomController;
+    public DenominationController DenomController;
     public UIBehaviour UIBehaviour;
     public ChoosingAMult ChoosingAMult;
     public MultiplierChestFeature RandomNumOfChests;

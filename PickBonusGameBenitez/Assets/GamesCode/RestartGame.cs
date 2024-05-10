@@ -18,8 +18,8 @@ public class RestartGame : MonoBehaviour
     public MultiplierChestFeature Chests;
     public ChoosingAMult Mult;
     public ParticleBehavior Particles;
-    public ChestsController ChestsController;
-    public DenominatonController DenominatonController;
+    public ChestController ChestsController;
+    public DenominationController DenominatonController;
     /// <summary>
     /// Restarts everything needed for a game to start.
     /// </summary>

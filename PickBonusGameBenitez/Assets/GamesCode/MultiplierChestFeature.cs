@@ -22,9 +22,6 @@ public class MultiplierChestFeature : MonoBehaviour
     public bool WonChest;
     [Header("Scripts")]
     public ChoosingAMult ChoosingAMult;
-    public GameSolver GameSolver;
-
-
 
     /// <summary>
     /// Spits out a random number to see if the player is granted a Multiper Feature.
@@ -84,7 +81,7 @@ public class MultiplierChestFeature : MonoBehaviour
     /// 
     private void AddingAndOrgainzingChestInList()
     {
-        GameSolver.ListOfWins.Sort();
+        GameSolver.Instance.ListOfWins.Sort();
         Debug.Log("org the list");
         if (WonChest)
         {
@@ -92,8 +89,8 @@ public class MultiplierChestFeature : MonoBehaviour
 
             foreach (int Chests in ChestWon)
             {
-                int index = Random.Range(0, GameSolver.ListOfWins.Count - 2);
-                GameSolver.ListOfWins.Insert(index, Chests);
+                int index = Random.Range(0, GameSolver.Instance.ListOfWins.Count - 2);
+                GameSolver.Instance.ListOfWins.Insert(index, Chests);
                 Debug.Log("place chest in this index " + index);
             }
         }

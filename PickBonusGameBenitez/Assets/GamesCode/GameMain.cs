@@ -11,8 +11,8 @@ public class GameMain : MonoBehaviour
     public UIBehaviour UIBehaviour;
     public ChoosingAMult ChoosingAMult;
     public MultiplierChestFeature RandomNumOfChests;
-    public DenominatonController DenomController;
-    public ChestsController ChestsController;
+    public DenominationController DenomController;
+    public ChestController ChestsController;
 
     /// <summary>
     /// This function checks if the player can play the game, also checks for if player can afford to play etc etc.

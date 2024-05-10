@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIBehaviour : MonoBehaviour
 {
     [Header("Scripts")]
-    public DenominatonController DenomController;
+    public DenominationController DenomController;
 
     [Header("Texts")]
     public TextMeshProUGUI PlayerBalanceText;

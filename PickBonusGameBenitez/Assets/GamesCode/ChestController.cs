@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ChestsController : MonoBehaviour
+public class ChestController : MonoBehaviour
 {
     public List<LootBox> LootBoxes;
 

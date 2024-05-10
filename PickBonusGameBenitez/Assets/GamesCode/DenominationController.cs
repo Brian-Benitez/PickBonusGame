@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DenominatonController : MonoBehaviour
+public class DenominationController : MonoBehaviour
 {
     public int index;
     public decimal CurrentDenom;
