@@ -150,7 +150,7 @@ Transform:
   m_Children:
   - {fileID: 1204361532}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &29919606
 GameObject:
@@ -928,7 +928,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &718968054
 GameObject:
@@ -1078,7 +1078,7 @@ Transform:
   m_Children:
   - {fileID: 2077129412}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882880840
 GameObject:
@@ -1457,7 +1457,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964770862
 GameObject:
@@ -2874,11 +2874,11 @@ MonoBehaviour:
   WinAmountText: {fileID: 1202912939}
   FeatMultText: {fileID: 1465231336}
   PlayerBalanceText: {fileID: 2000739972}
-  UIBehaviour: {fileID: 0}
-  Particles: {fileID: 0}
-  MultiplerChests: {fileID: 0}
-  ChestController: {fileID: 0}
-  DenomController: {fileID: 0}
+  UIBehaviour: {fileID: 645076622}
+  Particles: {fileID: 29919608}
+  MultiplerChests: {fileID: 384420959}
+  ChestController: {fileID: 1550659198}
+  DenomController: {fileID: 1387410457}
 --- !u!1 &2084309559
 GameObject:
   m_ObjectHideFlags: 0
