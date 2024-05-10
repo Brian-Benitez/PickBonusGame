@@ -7,63 +7,63 @@ public class TreasureClicked : MonoBehaviour
 {
     [Header("Scripts")]
     public TextMeshProUGUI WinAmountText;
-    public GameSolver WinAmount;//fix this.
-    private decimal _dividedWMult;
-    private decimal _finalFeatureAmount;
     public TextMeshProUGUI FeatMultText;
     public TextMeshProUGUI PlayerBalanceText;
     public UIBehaviour UIBehaviour;
     public ParticleBehavior Particles;
-    public MultiplierChestFeature chests;
-    public ChestsController chestsController;
-    public DenominatonController denominatonController;
+    public MultiplierChestFeature MultiplerChests;
+    public ChestsController ChestController;
+    public DenominatonController DenomController;
+
+    private decimal _dividedWMult;
+    private decimal _finalFeatureAmount;
 
     private void Start()
     {
-        PlayerBalanceText.text = string.Format("{0:C}", WinAmount.PlayerBalance);
+        PlayerBalanceText.text = string.Format("{0:C}", GameSolver.Instance.PlayerBalance);
     }
     /// <summary>
     /// Checks to see if the win is a feature or is using it then displays whats needed, if not using it, just display.
     /// </summary>
     public void DisplayWin()
     {
-        foreach (decimal Win in WinAmount.ListOfWins.ToList())
+        foreach (decimal Win in GameSolver.Instance.ListOfWins.ToList())
         {
-            if (Win == 0)
+            if (Win == 0)//If a zero is picked, its a pooper.
             {
                 WinAmountText.text = "Pooper!";
-                WinAmount.PlayerBalance += WinAmount.TotalWinBoxAmount;
-                PlayerBalanceText.text = string.Format("{0:C}", WinAmount.PlayerBalance);
+                GameSolver.Instance.PlayerBalance += GameSolver.Instance.TotalWinBoxAmount;
+                PlayerBalanceText.text = string.Format("{0:C}", GameSolver.Instance.PlayerBalance);
                 Debug.Log("pooper!!!!!!!!!!");
                 UIBehaviour.EnableAllButtons();
-                chestsController.StopAnimations();
-                chestsController.DisableAllChestColliders();
-                denominatonController.PlusAndMinusButtonBehaviour();
+                ChestController.StopAnimations();
+                ChestController.DisableAllChestColliders();
+                DenomController.PlusAndMinusButtonBehaviour();
                 return;
             }
-            else if (Win == -1)
+            else if (Win == -1)//If a chest is picked, do whats below.
             {
                 Debug.Log("its a chest");
                 SetTextsAndMults();
-                Particles.ChecktiersAndSetParticles(chests.ChestIndex);
-                chests.IncrementFeatureMult();
+                Particles.ChecktiersAndSetParticles(MultiplerChests.ChestIndex);
+                MultiplerChests.IncrementFeatureMult();
 
-                Debug.Log("chest index is " + chests.ChestIndex);
+                Debug.Log("chest index is " + MultiplerChests.ChestIndex);
             }
-            else if (WinAmount.IsUsingFeature)
+            else if (GameSolver.Instance.IsUsingFeature)//If the game is using the feature, use below.
             {
                 FeatureChestMath(Win);
                 Debug.Log("using feature doing math");
             }
-            else
+            else//If just a normal turn, use below.
             {
                 Debug.Log("normal win");
                 WinAmountText.text = string.Format("{0:C}", Win);
-                WinAmount.TotalWinBoxAmount += Win;
-                UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", WinAmount.TotalWinBoxAmount);
+                GameSolver.Instance.TotalWinBoxAmount += Win;
+                UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
             }
 
-            WinAmount.ListOfWins.Remove(Win);
+            GameSolver.Instance.ListOfWins.Remove(Win);
             Debug.Log("took out " + Win);
             return;
         }
@@ -72,29 +72,29 @@ public class TreasureClicked : MonoBehaviour
 
     public void SetTextsAndMults()
     {
-        WinAmountText.text = "New Mult! " + chests.FeatureMultsTierList[chests.ChestIndex] + "x";
-        FeatMultText.text = chests.FeatureMultsTierList[chests.ChestIndex] + "x";
-        chests.FeatureMult = chests.FeatureMultsTierList[chests.ChestIndex];
-        Debug.Log(chests.FeatureMult + " Feat mult is");
-        WinAmount.IsUsingFeature = true;
+        WinAmountText.text = "New Mult! " + MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex] + "x";
+        FeatMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex] + "x";
+        MultiplerChests.FeatureMult = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex];
+        Debug.Log(MultiplerChests.FeatureMult + " Feat mult is");
+        GameSolver.Instance.IsUsingFeature = true;
     }
 
     public void FeatureChestMath(decimal Win)
     {
         _dividedWMult = 0;
-        _dividedWMult = Win / chests.FeatureMult;
+        _dividedWMult = Win / MultiplerChests.FeatureMult;
         WinAmountText.text = string.Format("{0:C}", _dividedWMult);
-        chestsController.DisableCollidersOnChest();
+        ChestController.DisableCollidersOnChest();
         Debug.Log("wait");
         Delay(2f, () =>
         {
-            chestsController.EnableColldiersOnChest();
+            ChestController.EnableColldiersOnChest();
             _finalFeatureAmount = 0;
-            _finalFeatureAmount = chests.FeatureMult * _dividedWMult * 1;
+            _finalFeatureAmount = MultiplerChests.FeatureMult * _dividedWMult * 1;
             Debug.Log("whats the num " + _dividedWMult);
             WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
-            WinAmount.TotalWinBoxAmount += Win;
-            UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", WinAmount.TotalWinBoxAmount);
+            GameSolver.Instance.TotalWinBoxAmount += Win;
+            UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
         });
     }
     /// <summary>
