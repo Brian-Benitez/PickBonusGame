@@ -11,7 +11,6 @@ public class UIBehaviour : MonoBehaviour
 
     [Header("Texts")]
     public TextMeshProUGUI PlayerBalanceText;
-    public TextMeshProUGUI WinBoxText;
     public TextMeshProUGUI WinboxAmountText;
 
     [Header("Buttons")]
