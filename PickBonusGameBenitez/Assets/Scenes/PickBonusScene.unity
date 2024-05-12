@@ -923,7 +923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FeatureMult: 0
   ChestIndex: 0
-  FeatureMultsTierList: 
+  FeatureMultsTierList: 020000000400000008000000
   FeaturePercent: 0
   LosingFeatureThershold: 50
   WinThreeChestThershold: 60
@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 288747203}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -1195,6 +1195,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &642212629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 642212625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642212627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &645076620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 1817953624}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -1776,6 +1788,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &817392196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 817392192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817392194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854920392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 383062549}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -2360,6 +2384,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &935312227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 935312223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935312225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2696,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb46b78f78e74267836b445901cf537, type: 3}
+--- !u!114 &1072794382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 1072794381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077129411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1145502582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,7 +3221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 1329715474}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -3181,6 +3229,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &1300369044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 1300369040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300369042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328272238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,7 +4017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 1328272240}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -3965,6 +4025,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &1469277174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 1469277170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469277172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1550659197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +4066,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23b9ef3801d7644dad484612ad0c37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LootBoxes: []
+  LootBoxes:
+  - {fileID: 1072794382}
+  - {fileID: 1469277174}
+  - {fileID: 1990932875}
+  - {fileID: 2123802877}
+  - {fileID: 1300369044}
+  - {fileID: 1919964505}
+  - {fileID: 642212629}
+  - {fileID: 935312227}
+  - {fileID: 817392196}
 --- !u!4 &1550659199
 Transform:
   m_ObjectHideFlags: 0
@@ -4322,7 +4403,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe0001b188269b478fd3e7077962d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinTexts: []
+  WinTexts:
+  - {fileID: 917631299}
+  - {fileID: 1699155783}
+  - {fileID: 1328272240}
+  - {fileID: 383062549}
+  - {fileID: 288747203}
+  - {fileID: 1817953624}
+  - {fileID: 590284937}
+  - {fileID: 1329715474}
+  - {fileID: 1372957474}
   PlayerXMult: {fileID: 908172854}
   GameMainBool: {fileID: 1708598449}
   ChestBehavior: {fileID: 1743167094}
@@ -4573,7 +4663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 1372957474}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -4581,6 +4671,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &1919964505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 1919964501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919964503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929448984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,7 +4996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 1699155783}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -4902,6 +5004,18 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &1990932875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990932871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990932873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2000739970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,7 +5173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 917631299}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -5316,7 +5430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97aef7ae803e48249978c9539d4a9a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinAmountText: {fileID: 0}
+  WinAmountText: {fileID: 590284937}
   FeatMultText: {fileID: 908172854}
   PlayerBalanceText: {fileID: 2000739972}
   UIBehaviour: {fileID: 645076622}
@@ -5324,3 +5438,15 @@ MonoBehaviour:
   MultiplerChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
+--- !u!114 &2123802877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471643305006496069, guid: feb46b78f78e74267836b445901cf537,
+    type: 3}
+  m_PrefabInstance: {fileID: 2123802873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123802875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ceab7bbc0f464b97b79525636d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

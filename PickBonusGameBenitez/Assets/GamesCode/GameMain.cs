@@ -42,7 +42,7 @@ public class GameMain : MonoBehaviour
         }
     }
 
-    public void Play()
+    private void Play()
     {
         GameStarts = true;
         ChoosingAMult.RandomPercentageForMultList();

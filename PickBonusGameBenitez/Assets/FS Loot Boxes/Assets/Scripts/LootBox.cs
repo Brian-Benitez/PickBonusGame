@@ -85,11 +85,14 @@ public class LootBox : MonoBehaviour
     /// </summary>
     public event Action <GameObject[]> OnBoxOpen;
 
+    private TreasureClicked Treasure;
     // Start is called before the first frame update
     void Start()
     {
         // gets the animator
         animator = GetComponent<Animator>();
+
+        Treasure = GetComponent<TreasureClicked>();
 
         // set the animation to bounce or not
         BounceBox(bouncingBox);
