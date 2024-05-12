@@ -86,6 +86,7 @@ public class LootBox : MonoBehaviour
     public event Action <GameObject[]> OnBoxOpen;
 
     private TreasureClicked Treasure;
+    private ChestBehavior Behavior;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +94,8 @@ public class LootBox : MonoBehaviour
         animator = GetComponent<Animator>();
 
         Treasure = GetComponent<TreasureClicked>();
+
+        Behavior = GetComponent<ChestBehavior>();
 
         // set the animation to bounce or not
         BounceBox(bouncingBox);
@@ -183,8 +186,17 @@ public class LootBox : MonoBehaviour
         // checks if the opening method is OpenOnTouch
         if (openingMethod != OpeningMethods.OpenOnTouch) return;
 
-        // Open the box.
-        Open();
+        if(Behavior.Check.GameStarts)
+        {
+            //Open the box.
+            Open();
+            Treasure.DisplayWin();
+        }
+        else
+        {
+            Debug.Log("Dont do anything");
+            return;
+        }
     }
 
     /// <summary>

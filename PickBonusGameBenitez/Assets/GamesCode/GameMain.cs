@@ -54,7 +54,9 @@ public class GameMain : MonoBehaviour
         }
         else//If not, Solve the turn and see if they get a feature chest as well
         {
+            Debug.Log("Winning turn");
             GameSolver.Instance.SolveTurn();
+            Debug.Log("called solve turn");
             RandomNumOfChests.RandomPercentageOfFeature();
             GameSolver.Instance.ListOfWins.Add(0);
             //remember to delete this below before sending its just for testing
