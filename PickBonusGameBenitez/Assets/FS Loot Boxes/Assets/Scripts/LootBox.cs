@@ -186,7 +186,7 @@ public class LootBox : MonoBehaviour
         // checks if the opening method is OpenOnTouch
         if (openingMethod != OpeningMethods.OpenOnTouch) return;
 
-        if(Behavior.Check.GameStarts)
+        if(Behavior.Check.GameStarts && !isOpen)
         {
             //Open the box.
             Open();

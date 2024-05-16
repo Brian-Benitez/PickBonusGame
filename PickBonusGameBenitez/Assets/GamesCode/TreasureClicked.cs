@@ -62,7 +62,7 @@ public class TreasureClicked : MonoBehaviour
                 GameSolver.Instance.TotalWinBoxAmount += Win;
                 UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
             }
-
+            ChestController.EnableColldiersOnChest();
             GameSolver.Instance.ListOfWins.Remove(Win);
             Debug.Log("took out " + Win);
             return;

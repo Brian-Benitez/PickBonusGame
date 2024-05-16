@@ -266,7 +266,7 @@ MonoBehaviour:
   - 0.8
   PlayerWinAmount: 0
   IsUsingFeature: 0
-  AttemptsToSolve: 8
+  AttemptsToSolve: 7
   FailedAttempts: 0
   MaxOfTriesLeft: 3
   DenomController: {fileID: 1387410457}
@@ -55758,7 +55758,6 @@ MonoBehaviour:
   - 0.25
   - 0.5
   - 1
-  - 2
   - 5
   UI: {fileID: 645076622}
 --- !u!4 &1387410458
