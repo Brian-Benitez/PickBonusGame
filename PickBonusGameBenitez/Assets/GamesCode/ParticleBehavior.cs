@@ -9,12 +9,7 @@ public class ParticleBehavior : MonoBehaviour
     [Header("Particles")]
     public List<ParticleSystem> TwoXParticles;
     public List<ParticleSystem> FourXParticles;
-    public List<ParticleSystem> EightXParticles;
-
-    [Header("Colors")]
-    public Color TwoXColor;
-    public Color FourXColor;
-    public Color EightXColor;
+    //public List<ParticleSystem> EightXParticles;
 
     [Header("Scripts")]
     public MultiplierChestFeature NumOfChests;
@@ -29,22 +24,19 @@ public class ParticleBehavior : MonoBehaviour
         if (NumOfChests.FeatureMultsTierList[index] == 2)
         {
             Debug.Log("Playing");
-            TwoXParticles.ToList().ForEach(b => { b.gameObject.SetActive(true); b.Play(); });
-            TwoXParticles.ToList().ForEach(i => { var main = i.main; main.startColor = TwoXColor; });
+            TwoXParticles.ToList().ForEach(b => { b.Play(); });
             Debug.Log("_particle play " + NumOfChests.FeatureMultsTierList[index]);
         }
         if (NumOfChests.FeatureMultsTierList[index] == 4)
         {
-            //TwoXParticles.ToList().ForEach(z => { z.gameObject.SetActive(false); z.Pause(); });
-           TwoXParticles.ToList().ForEach(i => { var main = i.main; main.startColor = FourXColor; });
-            // FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(true); h.Play(); });
+            TwoXParticles.ToList().ForEach(z => { z.gameObject.SetActive(false); z.Pause(); });
+            FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(true); h.Play(); });
            Debug.Log("__particle play");
            Debug.Log("_particle play " + NumOfChests.FeatureMultsTierList[index]);
         }
         else if (NumOfChests.FeatureMultsTierList[index] == 8)
         {
             //FourXParticles.ToList().ForEach(x => { x.gameObject.SetActive(false); x.Pause(); });
-            TwoXParticles.ToList().ForEach(i => { var main = i.main; main.startColor = EightXColor; });
             //EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(true); y.Play(); });
             Debug.Log("____particle play");
         }
@@ -54,9 +46,10 @@ public class ParticleBehavior : MonoBehaviour
 
     public void DisableAllParticles()
     {
-        TwoXParticles.ToList().ForEach(b => { b.gameObject.SetActive(false); b.Pause(); });
+        TwoXParticles.ToList().ForEach(b => { b.Stop(); });
+        Debug.Log("Stop playing particles");
 
-        ///FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(false); h.Pause(); });
+        FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(false); h.Pause(); });
 
         ///EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(false); y.Pause(); });
     }
