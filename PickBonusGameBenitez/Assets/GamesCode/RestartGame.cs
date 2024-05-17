@@ -26,7 +26,7 @@ public class RestartGame : MonoBehaviour
     public void RestartingGame()//I have this function be called onClick of the start button!
     {
         GameMainBool.GameStarts = false;
-        PlayerXMult.text = " ";
+        PlayerXMult.text = "1X";
         UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", 0);
 
         GameSolver.Instance.RestartGameSolver();

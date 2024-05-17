@@ -86,6 +86,7 @@ public class TreasureClicked : MonoBehaviour
         WinAmountText.text = string.Format("{0:C}", _dividedWMult);
         ChestController.DisableCollidersOnChest();
         Debug.Log("wait");
+
         Delay(2f, () =>
         {
             ChestController.EnableColldiersOnChest();

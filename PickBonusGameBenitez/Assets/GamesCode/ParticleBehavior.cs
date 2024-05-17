@@ -19,29 +19,25 @@ public class ParticleBehavior : MonoBehaviour
     /// </summary>
     public void ChecktiersAndSetParticles(int index)
     {
-        Debug.Log("wtf " + index);
-        Debug.Log("fuck " + NumOfChests.FeatureMultsTierList[index]);
         if (NumOfChests.FeatureMultsTierList[index] == 2)
         {
             Debug.Log("Playing");
-            TwoXParticles.ToList().ForEach(b => { b.Play(); });
+            TwoXParticles.ToList().ForEach(TwoXParticle => { TwoXParticle.gameObject.SetActive(true); TwoXParticle.Play(); });
             Debug.Log("_particle play " + NumOfChests.FeatureMultsTierList[index]);
         }
         if (NumOfChests.FeatureMultsTierList[index] == 4)
         {
-            TwoXParticles.ToList().ForEach(z => { z.gameObject.SetActive(false); z.Pause(); });
-            FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(true); h.Play(); });
+            TwoXParticles.ToList().ForEach(TwoXParticle => { TwoXParticle.gameObject.SetActive(false); TwoXParticle.Pause(); });
+            FourXParticles.ToList().ForEach(FourxParticle => { FourxParticle.gameObject.SetActive(true); FourxParticle.Play(); });
            Debug.Log("__particle play");
            Debug.Log("_particle play " + NumOfChests.FeatureMultsTierList[index]);
         }
         else if (NumOfChests.FeatureMultsTierList[index] == 8)
         {
-            //FourXParticles.ToList().ForEach(x => { x.gameObject.SetActive(false); x.Pause(); });
+            FourXParticles.ToList().ForEach(FourXParticle => { FourXParticle.gameObject.SetActive(false); FourXParticle.Pause(); });
             //EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(true); y.Play(); });
             Debug.Log("____particle play");
         }
-
-
     }
 
     public void DisableAllParticles()

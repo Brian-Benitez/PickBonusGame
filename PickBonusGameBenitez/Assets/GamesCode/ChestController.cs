@@ -24,13 +24,13 @@ public class ChestController : MonoBehaviour
 
     public void StartChestAnimations()
     {
-        LootBoxes.ToList().ForEach(x => x.BounceBox(true));
+        LootBoxes.ToList().ForEach(Boxes => Boxes.BounceBox(true));
         Debug.Log("start animating chest");
     }
 
     public void DisableAllChestColliders()
     {
-        LootBoxes.ToList().ForEach(x => x.GetComponent<Collider>().enabled = false);
+        LootBoxes.ToList().ForEach(Boxes => Boxes.GetComponent<Collider>().enabled = false);
     }
 
     public void EnableAllChestColldiers()

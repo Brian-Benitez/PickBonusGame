@@ -17,7 +17,7 @@ public class GameMain : MonoBehaviour
     /// <summary>
     /// This function checks if the player can play the game, also checks for if player can afford to play etc etc.
     /// </summary>
-    public void PrePlayConditionCheck()
+    public void PrePlayConditionCheck()//This is called on button play press!
     {
 
         if (GameSolver.Instance.PlayerBalance < .25m)
@@ -56,7 +56,6 @@ public class GameMain : MonoBehaviour
         {
             Debug.Log("Winning turn");
             GameSolver.Instance.SolveTurn();
-            Debug.Log("called solve turn");
             RandomNumOfChests.RandomPercentageOfFeature();
             GameSolver.Instance.ListOfWins.Add(0);
             //remember to delete this below before sending its just for testing
