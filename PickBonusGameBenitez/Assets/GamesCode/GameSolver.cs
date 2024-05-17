@@ -12,9 +12,6 @@ public class GameSolver : MonoBehaviour
 
     [Header("Lists")]
     public List<decimal> ListOfWins;
-
-    public List<decimal> OddNumbers;
-
     public List<float> NumsToDivdeBy;
 
     [Header("Player info")]
@@ -73,13 +70,13 @@ public class GameSolver : MonoBehaviour
             int index = Random.Range(0, NumsToDivdeBy.Count);//Pick a radom number to divid up the win
             Debug.Log("the number to divde by: " + NumsToDivdeBy[index]);
             dividedWinAmount = ((float)(PlayerWinAmount * NumsToDivdeBy[index]));//Divide the number up with the one of the numbers in NumsToDivideBy
-
+            /*
             if ((float)DenomController.CurrentDenom <= .50f)//This checks for when the denom is less than or equal to 50 cents, round it up more
             {
                 dividedWinAmount = (float)(dividedWinAmount * 0.05 * 10);
                 Debug.Log("round up number");
             }
-
+            */
             Debug.Log(dividedWinAmount + " a win amount");
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
             ListOfWins.Add((decimal)dividedWinAmount);//Give it to the player
@@ -131,7 +128,6 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private void GiveLeftOverWinAmountToPlayer()
     {
-        //ListOfWins.RemoveAt(ListOfWins.Count - 1);
         decimal LeftOverWinAmount = (decimal)PlayerWinAmount - ListOfWins.Sum();
         ListOfWins.Add(LeftOverWinAmount);
         Debug.Log("left over " + LeftOverWinAmount);    
