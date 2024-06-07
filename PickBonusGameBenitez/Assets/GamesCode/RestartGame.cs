@@ -9,6 +9,7 @@ public class RestartGame : MonoBehaviour
 {
     [Header("Text")]
     public List<TextMeshProUGUI> WinTexts;
+    public List<TextMeshProUGUI> ChestMultTexts;
     public TextMeshProUGUI PlayerXMult;
 
     [Header("Scripts")]
@@ -37,9 +38,13 @@ public class RestartGame : MonoBehaviour
         Particles.DisableAllParticles();
         ChestsController.EnableAllChestColldiers();
 
-        foreach (TextMeshProUGUI text in WinTexts)
+        foreach (TextMeshProUGUI WinText in WinTexts)
         {
-            text.text = " ";
+            WinText.text = " ";
+        }
+        foreach (TextMeshProUGUI ChestMultText in ChestMultTexts)
+        {
+            ChestMultText.text = " ";
         }
     }
 }

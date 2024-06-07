@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class TreasureClicked : MonoBehaviour
 {
-    [Header("Scripts")]
+    [Header("Text")]
     public TextMeshProUGUI WinAmountText;
     public TextMeshProUGUI FeatMultText;
     public TextMeshProUGUI PlayerBalanceText;
+    public TextMeshProUGUI ChestMultText;
+
+    [Header("Scripts")]
     public UIBehaviour UIBehaviour;
     public ParticleBehavior Particles;
     public MultiplierChestFeature MultiplerChests;
@@ -78,7 +81,10 @@ public class TreasureClicked : MonoBehaviour
         Debug.Log(MultiplerChests.FeatureMult + " Feat mult is");
         GameSolver.Instance.IsUsingFeature = true;
     }
-
+    /// <summary>
+    /// This function shows the "old" win then shows the new win!
+    /// </summary>
+    /// <param name="Win"></param>
     public void FeatureChestMath(decimal Win)
     {
         _dividedWMult = 0;
@@ -94,6 +100,7 @@ public class TreasureClicked : MonoBehaviour
             _finalFeatureAmount = MultiplerChests.FeatureMult * _dividedWMult * 1;
             Debug.Log("whats the num " + _dividedWMult);
             WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
+            ChestMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex - 1] + "x!";
             GameSolver.Instance.TotalWinBoxAmount += Win;
             UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
         });
