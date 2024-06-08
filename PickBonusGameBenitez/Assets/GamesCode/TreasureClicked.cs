@@ -17,6 +17,7 @@ public class TreasureClicked : MonoBehaviour
     public MultiplierChestFeature MultiplerChests;
     public ChestController ChestController;
     public DenominationController DenomController;
+    public RampingTally TallyNumber;
 
     private decimal _dividedWMult;
     private decimal _finalFeatureAmount;
@@ -99,8 +100,9 @@ public class TreasureClicked : MonoBehaviour
             _finalFeatureAmount = 0;
             _finalFeatureAmount = MultiplerChests.FeatureMult * _dividedWMult * 1;
             Debug.Log("whats the num " + _dividedWMult);
-            WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
+            //WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
             ChestMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex - 1] + "x!";
+            TallyNumber.AddValue((float)Win);
             GameSolver.Instance.TotalWinBoxAmount += Win;
             UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
         });
