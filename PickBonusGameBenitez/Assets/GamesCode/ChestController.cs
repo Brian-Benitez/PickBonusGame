@@ -65,7 +65,7 @@ public class ChestController : MonoBehaviour
         {
             if (box.isOpen)
             {
-                Debug.Log("do nothing");
+                //Debug.Log("do nothing");
             }
             else
             {

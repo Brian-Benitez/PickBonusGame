@@ -74,7 +74,7 @@ public class TreasureClicked : MonoBehaviour
 
     }
 
-    public void SetTextsAndMults()
+    private void SetTextsAndMults()
     {
         WinAmountText.text = "New Mult! " + MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex] + "x";
         FeatMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex] + "x";
@@ -86,23 +86,21 @@ public class TreasureClicked : MonoBehaviour
     /// This function shows the "old" win then shows the new win!
     /// </summary>
     /// <param name="Win"></param>
-    public void FeatureChestMath(decimal Win)
+    private void FeatureChestMath(decimal Win)
     {
         _dividedWMult = 0;
         _dividedWMult = Win / MultiplerChests.FeatureMult;
         WinAmountText.text = string.Format("{0:C}", _dividedWMult);
         ChestController.DisableCollidersOnChest();
-        Debug.Log("wait");
 
         Delay(2f, () =>
         {
-            ChestController.EnableColldiersOnChest();
+            ChestController.EnableColldiersOnChest();//This is called when the tally starts, maybe move it or delay it more idk
             _finalFeatureAmount = 0;
             _finalFeatureAmount = MultiplerChests.FeatureMult * _dividedWMult * 1;
-            Debug.Log("whats the num " + _dividedWMult);
             //WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
             ChestMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex - 1] + "x!";
-            TallyNumber.AddValue((float)Win);
+            TallyNumber.AddValue((float)_finalFeatureAmount);
             GameSolver.Instance.TotalWinBoxAmount += Win;
             UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
         });
@@ -112,7 +110,7 @@ public class TreasureClicked : MonoBehaviour
     /// </summary>
     /// <param name="time"></param>
     /// <param name="_callBack"></param>
-    public static void Delay(float time, System.Action _callBack)
+    private static void Delay(float time, System.Action _callBack)
     {
         Sequence seq = DOTween.Sequence();
 
