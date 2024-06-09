@@ -37,6 +37,7 @@ public class RampingTally : MonoBehaviour
 
     public void AddValue(float value)
     {
+        targetValue = 0;
         targetValue += value;
         if (_C2T != null)
             StopCoroutine(_C2T);

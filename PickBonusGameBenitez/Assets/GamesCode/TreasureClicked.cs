@@ -66,7 +66,7 @@ public class TreasureClicked : MonoBehaviour
                 GameSolver.Instance.TotalWinBoxAmount += Win;
                 UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
             }
-            ChestController.EnableColldiersOnChest();
+            //ChestController.EnableColldiersOnChest();
             GameSolver.Instance.ListOfWins.Remove(Win);
             Debug.Log("took out " + Win);
             return;
@@ -95,14 +95,19 @@ public class TreasureClicked : MonoBehaviour
 
         Delay(2f, () =>
         {
-            ChestController.EnableColldiersOnChest();//This is called when the tally starts, maybe move it or delay it more idk
+            Debug.Log("im delya hi");
             _finalFeatureAmount = 0;
             _finalFeatureAmount = MultiplerChests.FeatureMult * _dividedWMult * 1;
-            //WinAmountText.text = string.Format("{0:C}", _finalFeatureAmount);
             ChestMultText.text = MultiplerChests.FeatureMultsTierList[MultiplerChests.ChestIndex - 1] + "x!";
             TallyNumber.AddValue((float)_finalFeatureAmount);
+            Debug.Log("whats the final feature amount " + _finalFeatureAmount + " whats the win amount " + Win);
             GameSolver.Instance.TotalWinBoxAmount += Win;
             UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
+            Delay(2f, () =>
+            {
+                ChestController.EnableColldiersOnChest();
+            });
+         
         });
     }
     /// <summary>
