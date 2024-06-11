@@ -21,6 +21,7 @@ public class RestartGame : MonoBehaviour
     public ParticleBehavior Particles;
     public ChestController ChestsController;
     public DenominationController DenominatonController;
+
     /// <summary>
     /// Restarts everything needed for a game to start.
     /// </summary>

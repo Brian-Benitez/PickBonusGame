@@ -10,7 +10,7 @@ public class RampingTally : MonoBehaviour
     [Header("Text")]
     public TextMeshProUGUI numberText;
 
-    float currentValue = 0, targetValue = 0;
+    public float currentValue = 0, targetValue = 0;
     Coroutine _C2T;
 
     void Awake()
@@ -20,8 +20,11 @@ public class RampingTally : MonoBehaviour
 
     void Start()
     {
+        //Funny bug here, the current value needs to place a number in the text so then it can convert the string to a float then it will not cry.
+        numberText.text = "0";
         currentValue = float.Parse(numberText.text);
         targetValue = currentValue;
+        numberText.text = " ";
     }
 
     IEnumerator CountTo(float targetValue)
