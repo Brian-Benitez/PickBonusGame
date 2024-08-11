@@ -70,6 +70,8 @@ public class GameSolver : MonoBehaviour
             int index = Random.Range(0, NumsToDivdeBy.Count);//Pick a radom number to divid up the win
             Debug.Log("the number to divde by: " + NumsToDivdeBy[index]);
             dividedWinAmount = ((float)(PlayerWinAmount * NumsToDivdeBy[index]));//Divide the number up with the one of the numbers in NumsToDivideBy
+            //NEED TO PUT A FUNCTION OR CHECK HERE FOR ODD NUMBERS GENERATAED OR GIVEN.
+            //IF ITS ODD, PUT IT IN FRONT OF THE LIST OF WINS AFTER SORTING THE CHEST IN THE LIST.
             /*
             if ((float)DenomController.CurrentDenom <= .50f)//This checks for when the denom is less than or equal to 50 cents, round it up more
             {

@@ -794,7 +794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 46.500584, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.71160126, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5855,7 +5855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -5918,7 +5918,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 38.624542, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.36831278, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11061,7 +11061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -11124,7 +11124,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 45.421688, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.5270424, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11275,7 +11275,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 1857264580}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643304883754683}
@@ -26527,7 +26527,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 706013989}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643304516034538}
@@ -31545,7 +31545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -31608,7 +31608,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 39.317562, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.09806443, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -31773,7 +31773,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 1124808833}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643304633650937}
@@ -51637,7 +51637,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 286401266}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643305541958458}
@@ -56450,7 +56450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -56583,7 +56583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -56646,7 +56646,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 48.395523, w: 0}
+  m_margin: {x: 0, y: 0, z: 27.315811, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -56754,7 +56754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -61871,7 +61871,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 690639249}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643305171850844}
@@ -66781,7 +66781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -66844,7 +66844,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 48.473618, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.007190714, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -66950,7 +66950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 0}
 --- !u!1 &1788556672
 GameObject:
   m_ObjectHideFlags: 0
@@ -67079,7 +67079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 'New Mult! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -67142,7 +67142,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 48.2074, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.49675748, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -72060,7 +72060,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 132559173}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643305618612479}
@@ -77079,7 +77079,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 559567935}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643305691434033}
@@ -86740,7 +86740,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 740370773}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643304771419815}
@@ -91656,7 +91656,7 @@ MonoBehaviour:
   ChestMultText: {fileID: 551084017}
   UIBehaviour: {fileID: 645076622}
   Particles: {fileID: 29919608}
-  MultiplerChests: {fileID: 384420959}
+  MultiplierChests: {fileID: 384420959}
   ChestController: {fileID: 1550659198}
   DenomController: {fileID: 1387410457}
   TallyNumber: {fileID: 3471643305826344275}
@@ -96717,7 +96717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643304516034538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96820,7 +96820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643304633650937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96891,7 +96891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643304771419815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96975,7 +96975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643304883754683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97112,7 +97112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643305171850844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97293,7 +97293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643305541958458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97361,7 +97361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643305618612479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97467,7 +97467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643305691434033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97617,7 +97617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Check: {fileID: 1708598449}
+  GameMainRef: {fileID: 1708598449}
 --- !u!114 &3471643305826344275
 MonoBehaviour:
   m_ObjectHideFlags: 0
