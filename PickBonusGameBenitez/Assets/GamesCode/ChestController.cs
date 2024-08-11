@@ -59,7 +59,7 @@ public class ChestController : MonoBehaviour
         }
     }
 
-    public void EnableColldiersOnChest()
+    public void EnableCollidersOnChest()
     {
         foreach (LootBox box in LootBoxes)
         {

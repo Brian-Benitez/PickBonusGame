@@ -11,12 +11,7 @@ public class RampingTally : MonoBehaviour
     public TextMeshProUGUI numberText;
 
     public float currentValue = 0, targetValue = 0;
-    Coroutine _C2T;
-
-    void Awake()
-    {
-        //numberText = GetComponent<TextMeshProUGUI>();
-    }
+    Coroutine RampTallyCoroutine;
 
     void Start()
     {
@@ -42,16 +37,16 @@ public class RampingTally : MonoBehaviour
     {
         targetValue = 0;
         targetValue += value;
-        if (_C2T != null)
-            StopCoroutine(_C2T);
-        _C2T = StartCoroutine(CountTo(targetValue));
+        if (RampTallyCoroutine != null)
+            StopCoroutine(RampTallyCoroutine);
+        RampTallyCoroutine = StartCoroutine(CountTo(targetValue));
     }
 
     public void SetTarget(float target)
     {
         targetValue = target;
-        if (_C2T != null)
-            StopCoroutine(_C2T);
-        _C2T = StartCoroutine(CountTo(targetValue));
+        if (RampTallyCoroutine != null)
+            StopCoroutine(RampTallyCoroutine);
+        RampTallyCoroutine = StartCoroutine(CountTo(targetValue));
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ChestBehavior : MonoBehaviour
 {
-    public GameMain Check;
+    public GameMain GameMainRef;
     /// <summary>
     /// Enables and disables chests.
     /// </summary>
     public void ChestColldiers()
     {
-        Debug.Log("is game " + Check.GameStarts);
-        if (Check.GameStarts)
+        Debug.Log("is game " + GameMainRef.GameStarts);
+        if (GameMainRef.GameStarts)
         {
             GetComponent<BoxCollider>().enabled = true;
             return;
