@@ -102,13 +102,19 @@ public class MultiplierChestFeature : MonoBehaviour
             Debug.Log("player did not win any chest. No Chest are added");
         }
 
+        Debug.Log("how big is this list " + GameSolver.Instance.ListOfWins.Count);
         //Orgainzies the list, (I HAVNET TESTED THIS YET)
-        for (int i = 0; i < GameSolver.Instance.ListOfWins.Count; i++)
+        for (int i = 0; i < GameSolver.Instance.ListOfWins.Count - 1; i++)
         {
             if (GameSolver.Instance.ListOfWins[i] == -1)
                 Debug.Log("do nothing");
-            if (GameSolver.Instance.ListOfWins[i] != 0)
+            if (GameSolver.Instance.ListOfWins[i] % 2 != 0)
+            {
                 MoveItemAtIndexToFront(GameSolver.Instance.ListOfWins, i);
+                Debug.Log("move this number up " + i);
+            }
+
+            Debug.Log("this is the index " + i);
         }
     }
     /// <summary>
@@ -119,7 +125,9 @@ public class MultiplierChestFeature : MonoBehaviour
     private void MoveItemAtIndexToFront(List<decimal> items, int index)
     {
         items.Remove(items[index]);
+        Debug.Log("what the fuck " + index);
         items.Insert(0, items[index]);
+       
     }
     /// <summary>
     /// Increments the chest index so the game will use the right feature multipler for the chests
