@@ -20,6 +20,7 @@ public class MultiplierChestFeature : MonoBehaviour
 
     public int ChestRemaining;
     public bool WonChest;
+
     [Header("Scripts")]
     public ChoosingAMult ChoosingAMult;
 
@@ -81,7 +82,8 @@ public class MultiplierChestFeature : MonoBehaviour
     /// 
     private void AddingAndOrgainzingChestInList()
     {
-        GameSolver.Instance.ListOfWins.Sort();
+        //GameSolver.Instance.ListOfWins.Sort();
+       
         Debug.Log("org the list");
         if (WonChest)
         {
@@ -99,10 +101,30 @@ public class MultiplierChestFeature : MonoBehaviour
         {
             Debug.Log("player did not win any chest. No Chest are added");
         }
+
+        //Orgainzies the list, (I HAVNET TESTED THIS YET)
+        for (int i = 0; i < GameSolver.Instance.ListOfWins.Count; i++)
+        {
+            if (GameSolver.Instance.ListOfWins[i] == -1)
+                Debug.Log("do nothing");
+            if (GameSolver.Instance.ListOfWins[i] != 0)
+                MoveItemAtIndexToFront(GameSolver.Instance.ListOfWins, i);
+        }
+    }
+    /// <summary>
+    /// Gets ref to a list and the index of where the positsion of the number is, takes it out of the list and puts it in front.
+    /// </summary>
+    /// <param name="items"></param>
+    /// <param name="index"></param>
+    private void MoveItemAtIndexToFront(List<decimal> items, int index)
+    {
+        items.Remove(items[index]);
+        items.Insert(0, items[index]);
     }
     /// <summary>
     /// Increments the chest index so the game will use the right feature multipler for the chests
     /// </summary>
+    /// 
     public void IncrementFeatureMult()
     {
         ChestIndex++;
