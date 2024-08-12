@@ -81,7 +81,7 @@ public class GameSolver : MonoBehaviour
             */
             Debug.Log(dividedWinAmount + " a win amount");
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
-            ListOfWins.Add((decimal)dividedWinAmount);//Give it to the player
+            ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list
             AmountChecker();//Make sure it fits in the list of wins
 
             if (AmountChecker())//If amount checker is true stop solving

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DenominationController : MonoBehaviour
 {
-    public int index;
+    public int Index;
     public decimal CurrentDenom;
     public Button MinusButton;
     public Button PlusButton;
@@ -19,7 +19,7 @@ public class DenominationController : MonoBehaviour
 
     void Start()
     {
-        index = 2;
+        Index = 2;
         DenomText.text = string.Format("{0:C}", CurrentDenom);
     }
     /// <summary>
@@ -30,12 +30,12 @@ public class DenominationController : MonoBehaviour
 
         UI.PlayButtonBehaviour();
 
-        if (index <= Denoms[0])
+        if (Index <= Denoms[0])
         {
             Debug.Log("denom is " + CurrentDenom + " End of denom");
             MinusButton.interactable = false;
         }
-        else if (index >= Denoms.Length - 1)
+        else if (Index >= Denoms.Length - 1)
         {
             Debug.Log("denom is " + CurrentDenom + " Max of denom");
             PlusButton.interactable = false;
@@ -49,16 +49,16 @@ public class DenominationController : MonoBehaviour
 
     public void Increase()
     {
-        index++;
-        CurrentDenom = (decimal)Denoms[index];
+        Index++;
+        CurrentDenom = (decimal)Denoms[Index];
         DenomText.text = string.Format("{0:C}", CurrentDenom);
         Debug.Log("look here " + CurrentDenom);
     }
 
     public void Decrease()
     {
-        index--;
-        CurrentDenom = (decimal)Denoms[index];
+        Index--;
+        CurrentDenom = (decimal)Denoms[Index];
         DenomText.text = string.Format("{0:C}", CurrentDenom);
         Debug.Log("look here " + CurrentDenom);
     }

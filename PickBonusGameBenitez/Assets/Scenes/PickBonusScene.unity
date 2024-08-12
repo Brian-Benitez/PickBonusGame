@@ -5972,6 +5972,7 @@ MonoBehaviour:
   ChestRemaining: 0
   WonChest: 0
   ChoosingAMult: {fileID: 1974110052}
+  DenominationController: {fileID: 1387410457}
 --- !u!4 &384420960
 Transform:
   m_ObjectHideFlags: 0
@@ -66950,7 +66951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010521ae0a596446b68ff048321f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameMainRef: {fileID: 0}
+  GameMainRef: {fileID: 1708598449}
 --- !u!1 &1788556672
 GameObject:
   m_ObjectHideFlags: 0

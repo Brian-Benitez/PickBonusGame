@@ -8,7 +8,9 @@ public class MultiplierChestFeature : MonoBehaviour
     public int FeatureMult = 0;
     public int ChestIndex = 0;
 
+    [Header("Lists")]
     public List<int> FeatureMultsTierList;
+    private List<decimal> OddNums;
 
     [Header("Percentage")]
     public int FeaturePercent;
@@ -23,6 +25,7 @@ public class MultiplierChestFeature : MonoBehaviour
 
     [Header("Scripts")]
     public ChoosingAMult ChoosingAMult;
+    public DenominationController DenominationController;
 
     /// <summary>
     /// Spits out a random number to see if the player is granted a Multiper Feature.
@@ -82,7 +85,7 @@ public class MultiplierChestFeature : MonoBehaviour
     /// 
     private void AddingAndOrgainzingChestInList()
     {
-        //GameSolver.Instance.ListOfWins.Sort();
+        GameSolver.Instance.ListOfWins.Sort();
        
         Debug.Log("org the list");
         if (WonChest)
@@ -96,39 +99,49 @@ public class MultiplierChestFeature : MonoBehaviour
                 GameSolver.Instance.ListOfWins.Insert(index, Chests);
                 Debug.Log("place chest in this index " + index);
             }
+            TakeOddNumsAndMoveToFront();
         }
         else
         {
             Debug.Log("player did not win any chest. No Chest are added");
         }
 
-        Debug.Log("how big is this list " + GameSolver.Instance.ListOfWins.Count);
-        //Orgainzies the list, (I HAVNET TESTED THIS YET)
-        for (int i = 0; i < GameSolver.Instance.ListOfWins.Count - 1; i++)
-        {
-            if (GameSolver.Instance.ListOfWins[i] == -1)
-                Debug.Log("do nothing");
-            if (GameSolver.Instance.ListOfWins[i] % 2 != 0)
-            {
-                MoveItemAtIndexToFront(GameSolver.Instance.ListOfWins, i);
-                Debug.Log("move this number up " + i);
-            }
-
-            Debug.Log("this is the index " + i);
-        }
     }
     /// <summary>
-    /// Gets ref to a list and the index of where the positsion of the number is, takes it out of the list and puts it in front.
+    /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
     /// </summary>
-    /// <param name="items"></param>
-    /// <param name="index"></param>
-    private void MoveItemAtIndexToFront(List<decimal> items, int index)
+    private void TakeOddNumsAndMoveToFront()
     {
-        items.Remove(items[index]);
-        Debug.Log("what the fuck " + index);
-        items.Insert(0, items[index]);
-       
+        OddNums = new List<decimal>();
+        //take out odd nums
+        foreach (decimal Nums in GameSolver.Instance.ListOfWins.ToList())
+        {
+            if (Nums == 0)
+                Debug.Log("do nothing");
+            if (Nums % 2 == 1)//check this.
+            {
+                Debug.Log("odd num is " + Nums);
+                OddNums.Add(Nums);
+                GameSolver.Instance.ListOfWins.Remove(Nums);
+            }
+        }
+        //check to see what denom it is... then add them back to the og list.
+        if ((float)DenominationController.CurrentDenom < 1f)
+        {
+            Debug.Log("dont worry abou it rn");
+            //do something
+        }
+        else
+        {
+            foreach (decimal oddNuM in OddNums.ToList())
+            {
+                GameSolver.Instance.ListOfWins.Insert(0, oddNuM);
+                OddNums.Remove(oddNuM);
+                Debug.Log("add this back to the list. " + oddNuM);
+            }
+        }
     }
+   
     /// <summary>
     /// Increments the chest index so the game will use the right feature multipler for the chests
     /// </summary>
