@@ -12,7 +12,10 @@ public class GameSolver : MonoBehaviour
 
     [Header("Lists")]
     public List<decimal> ListOfWins;
-    public List<float> NumsToDivdeBy;
+    public List<float> EvenNumsToDivdeBy;
+    public List<float> OddNumsToDivideBy;
+
+    public List<float> _numbersToDivideBy;
 
     [Header("Player info")]
     public float PlayerWinAmount;
@@ -62,23 +65,22 @@ public class GameSolver : MonoBehaviour
     public void SolveTurn()
     {
         PlayerWinAmount = (float)ChoosingAMult.ChoosenMult * (float)DenomController.CurrentDenom;// Multiply the mult with the current denom to get the player win amount
-
         float dividedWinAmount = 0;
-        Debug.Log("heres the final amount X the denom " + PlayerWinAmount);
+        Debug.Log("heres the final amount times the denom " + PlayerWinAmount);
+
+        _numbersToDivideBy.Clear();
+
+        if((float)DenomController.CurrentDenom <= .25f)
+            _numbersToDivideBy.AddRange(EvenNumsToDivdeBy);
+        else
+        _numbersToDivideBy.AddRange(OddNumsToDivideBy);
+
         for (int i = 0; i < AttemptsToSolve; i++)
         {
-            int index = Random.Range(0, NumsToDivdeBy.Count);//Pick a radom number to divid up the win
-            Debug.Log("the number to divde by: " + NumsToDivdeBy[index]);
-            dividedWinAmount = ((float)(PlayerWinAmount * NumsToDivdeBy[index]));//Divide the number up with the one of the numbers in NumsToDivideBy
-            //NEED TO PUT A FUNCTION OR CHECK HERE FOR ODD NUMBERS GENERATAED OR GIVEN.
-            //IF ITS ODD, PUT IT IN FRONT OF THE LIST OF WINS AFTER SORTING THE CHEST IN THE LIST.
-            /*
-            if ((float)DenomController.CurrentDenom <= .50f)//This checks for when the denom is less than or equal to 50 cents, round it up more
-            {
-                dividedWinAmount = (float)(dividedWinAmount * 0.05 * 10);
-                Debug.Log("round up number");
-            }
-            */
+            int index = Random.Range(0, _numbersToDivideBy.Count);//Pick a radom number to divid up the win
+            Debug.Log("the number to divde by: " + _numbersToDivideBy[index]);
+            dividedWinAmount = ((float)(PlayerWinAmount * _numbersToDivideBy[index]));//Divide the number up with the one of the numbers in NumsToDivideBy
+            
             Debug.Log(dividedWinAmount + " a win amount");
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
             ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list

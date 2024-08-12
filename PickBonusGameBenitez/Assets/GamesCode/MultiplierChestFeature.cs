@@ -118,27 +118,19 @@ public class MultiplierChestFeature : MonoBehaviour
         {
             if (Nums == 0)
                 Debug.Log("do nothing");
-            if (Nums % 2 == 1)//check this.
+            if (Nums % 2 == 1)
             {
                 Debug.Log("odd num is " + Nums);
                 OddNums.Add(Nums);
                 GameSolver.Instance.ListOfWins.Remove(Nums);
             }
         }
-        //check to see what denom it is... then add them back to the og list.
-        if ((float)DenominationController.CurrentDenom < 1f)
+        // add back to list.
+        foreach (decimal oddNuM in OddNums.ToList())
         {
-            Debug.Log("dont worry abou it rn");
-            //do something
-        }
-        else
-        {
-            foreach (decimal oddNuM in OddNums.ToList())
-            {
-                GameSolver.Instance.ListOfWins.Insert(0, oddNuM);
-                OddNums.Remove(oddNuM);
-                Debug.Log("add this back to the list. " + oddNuM);
-            }
+            GameSolver.Instance.ListOfWins.Insert(0, oddNuM);
+            OddNums.Remove(oddNuM);
+            Debug.Log("add this back to the list. " + oddNuM);
         }
     }
    

@@ -259,11 +259,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f71f6cbc0faa42439d6510013e1f32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumsToDivdeBy:
+  EvenNumsToDivdeBy:
   - 0.2
   - 0.4
   - 0.6
   - 0.8
+  OddNumsToDivideBy:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 0.9
+  _numbersToDivideBy: []
   PlayerWinAmount: 0
   IsUsingFeature: 0
   AttemptsToSolve: 7
@@ -56900,7 +56906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbf6f22dee766249a97497f69a30f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  Index: 0
   MinusButton: {fileID: 2084309561}
   PlusButton: {fileID: 693511919}
   DenomText: {fileID: 121244799}
