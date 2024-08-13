@@ -264,11 +264,11 @@ MonoBehaviour:
   - 0.4
   - 0.6
   - 0.8
-  OddNumsToDivideBy:
-  - 0.3
+  OddEvenNumsToDivideBy:
+  - 0.2
   - 0.5
   - 0.7
-  - 0.9
+  - 0.8
   _numbersToDivideBy: []
   PlayerWinAmount: 0
   IsUsingFeature: 0
@@ -96737,7 +96737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 1817953624}
   currentValue: 0
   targetValue: 0
@@ -96840,7 +96840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 383062549}
   currentValue: 0
   targetValue: 0
@@ -96911,7 +96911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 917631299}
   currentValue: 0
   targetValue: 0
@@ -96995,7 +96995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 288747203}
   currentValue: 0
   targetValue: 0
@@ -97132,7 +97132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 1328272240}
   currentValue: 0
   targetValue: 0
@@ -97313,7 +97313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 1329715474}
   currentValue: 0
   targetValue: 0
@@ -97381,7 +97381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 1372957474}
   currentValue: 0
   targetValue: 0
@@ -97487,7 +97487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 1699155783}
   currentValue: 0
   targetValue: 0
@@ -97637,7 +97637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078528058ad05b408f3614d209a2173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDuration: 1
+  countDuration: 2
   numberText: {fileID: 590284937}
   currentValue: 0
   targetValue: 0

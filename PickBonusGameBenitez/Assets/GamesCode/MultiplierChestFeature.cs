@@ -132,6 +132,11 @@ public class MultiplierChestFeature : MonoBehaviour
             OddNums.Remove(oddNuM);
             Debug.Log("add this back to the list. " + oddNuM);
         }
+        //debuging purposes
+        foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
+        {
+            Debug.Log("List items = " + item);
+        }
     }
    
     /// <summary>

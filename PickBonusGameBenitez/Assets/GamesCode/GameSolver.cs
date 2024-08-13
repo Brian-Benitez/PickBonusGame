@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class GameSolver : MonoBehaviour
@@ -13,7 +13,7 @@ public class GameSolver : MonoBehaviour
     [Header("Lists")]
     public List<decimal> ListOfWins;
     public List<float> EvenNumsToDivdeBy;
-    public List<float> OddNumsToDivideBy;
+    public List<float> OddEvenNumsToDivideBy;
 
     public List<float> _numbersToDivideBy;
 
@@ -32,12 +32,14 @@ public class GameSolver : MonoBehaviour
     public int FailedAttempts;
     public int MaxOfTriesLeft;
 
-
     [Header("Scripts")]
     public DenominationController DenomController;
     public UIBehaviour UIBehaviour;
     public ChoosingAMult ChoosingAMult;
     public MultiplierChestFeature RandomNumOfChests;
+
+    int NewIndex = 0;
+    int OldIndex = 0;
 
     private void Awake()
     {
@@ -73,13 +75,20 @@ public class GameSolver : MonoBehaviour
         if((float)DenomController.CurrentDenom <= .25f)
             _numbersToDivideBy.AddRange(EvenNumsToDivdeBy);
         else
-        _numbersToDivideBy.AddRange(OddNumsToDivideBy);
+        _numbersToDivideBy.AddRange(OddEvenNumsToDivideBy);
 
         for (int i = 0; i < AttemptsToSolve; i++)
         {
-            int index = Random.Range(0, _numbersToDivideBy.Count);//Pick a radom number to divid up the win
-            Debug.Log("the number to divde by: " + _numbersToDivideBy[index]);
-            dividedWinAmount = ((float)(PlayerWinAmount * _numbersToDivideBy[index]));//Divide the number up with the one of the numbers in NumsToDivideBy
+            do
+            {
+                int index = Random.Range(0, _numbersToDivideBy.Count);//Pick a radom number to divid up the win
+                NewIndex = index;
+            }
+            while (NewIndex == OldIndex);//NOTE: IF IT GETS STUCK ITS HERE THIS IS THE ISSUE.
+            OldIndex = NewIndex;
+            
+            Debug.Log("the number to divde by: " + _numbersToDivideBy[NewIndex]);
+            dividedWinAmount = ((float)(PlayerWinAmount * _numbersToDivideBy[NewIndex]));//Divide the number up with the one of the numbers in NumsToDivideBy
             
             Debug.Log(dividedWinAmount + " a win amount");
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
@@ -99,7 +108,6 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private bool AmountChecker()
     {
-
         if (ListOfWins.Sum() == (decimal)PlayerWinAmount)
         {
             Debug.Log("done");
@@ -136,6 +144,8 @@ public class GameSolver : MonoBehaviour
         ListOfWins.Add(LeftOverWinAmount);
         Debug.Log("left over " + LeftOverWinAmount);    
     }
+
+   
     /// <summary>
     /// Function to restart game solvers vars
     /// </summary>

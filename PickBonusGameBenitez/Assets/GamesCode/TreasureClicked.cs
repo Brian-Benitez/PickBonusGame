@@ -100,6 +100,7 @@ public class TreasureClicked : MonoBehaviour
             _finalFeatureAmount = MultiplierChests.FeatureMult * _dividedWMult * 1;
             ChestMultText.text = MultiplierChests.FeatureMultsTierList[MultiplierChests.ChestIndex - 1] + "x!";
             TallyNumber.AddValue((float)_finalFeatureAmount);
+            TallyNumber.SetTarget((float)_finalFeatureAmount);
             Debug.Log("whats the final feature amount " + _finalFeatureAmount + " whats the win amount " + Win);
             GameSolver.Instance.TotalWinBoxAmount += Win;
             UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", GameSolver.Instance.TotalWinBoxAmount);
