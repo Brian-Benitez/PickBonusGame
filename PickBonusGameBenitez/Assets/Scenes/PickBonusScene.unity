@@ -272,13 +272,14 @@ MonoBehaviour:
   _numbersToDivideBy: []
   PlayerWinAmount: 0
   IsUsingFeature: 0
+  NeedsToResolve: 0
   AttemptsToSolve: 7
   FailedAttempts: 0
   MaxOfTriesLeft: 2
   DenomController: {fileID: 1387410457}
   UIBehaviour: {fileID: 645076622}
   ChoosingAMult: {fileID: 1974110052}
-  RandomNumOfChests: {fileID: 384420959}
+  MultChestFeatureRef: {fileID: 384420959}
 --- !u!1 &121244797
 GameObject:
   m_ObjectHideFlags: 0
@@ -66897,7 +66898,7 @@ MonoBehaviour:
   GameStarts: 0
   UIBehaviour: {fileID: 645076622}
   ChoosingAMult: {fileID: 1974110052}
-  RandomNumOfChests: {fileID: 384420959}
+  MultChestFeatureRef: {fileID: 384420959}
   DenomController: {fileID: 1387410457}
   ChestsController: {fileID: 1550659198}
 --- !u!4 &1708598450

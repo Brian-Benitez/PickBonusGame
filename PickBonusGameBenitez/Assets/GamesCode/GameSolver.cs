@@ -24,6 +24,7 @@ public class GameSolver : MonoBehaviour
 
     [Header("Booleans")]
     public bool IsUsingFeature;
+    public bool NeedsToResolve;
 
     [Header("Solver info")]
     public int AttemptsToSolve;
@@ -36,7 +37,7 @@ public class GameSolver : MonoBehaviour
     public DenominationController DenomController;
     public UIBehaviour UIBehaviour;
     public ChoosingAMult ChoosingAMult;
-    public MultiplierChestFeature RandomNumOfChests;
+    public MultiplierChestFeature MultChestFeatureRef;
 
     int NewIndex = 0;
     int OldIndex = 0;
@@ -66,7 +67,6 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     public void SolveTurn()
     {
-        PlayerWinAmount = (float)ChoosingAMult.ChoosenMult * (float)DenomController.CurrentDenom;// Multiply the mult with the current denom to get the player win amount
         float dividedWinAmount = 0;
         Debug.Log("heres the final amount times the denom " + PlayerWinAmount);
 
@@ -93,8 +93,10 @@ public class GameSolver : MonoBehaviour
             Debug.Log(dividedWinAmount + " a win amount");
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
             ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list
-            AmountChecker();//Make sure it fits in the list of wins
 
+            //AmountChecker();//Make sure it fits in the list of wins
+            Debug.LogWarning("does this get reached?");
+            CheckListForEligibilityOfFeature();
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
@@ -108,6 +110,7 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private bool AmountChecker()
     {
+
         if (ListOfWins.Sum() == (decimal)PlayerWinAmount)
         {
             Debug.Log("done");
@@ -145,7 +148,54 @@ public class GameSolver : MonoBehaviour
         Debug.Log("left over " + LeftOverWinAmount);    
     }
 
-   
+    /// <summary>
+    /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
+    /// </summary>
+    private void CheckListForEligibilityOfFeature()
+    {
+        int amountOfNumsThatWontSolve = 0;
+        if (MultChestFeatureRef.WonChest)
+            foreach (decimal item in ListOfWins.ToList())
+            {
+                decimal dividedResults = item / 8;
+
+                if (item == -1)
+                {
+                    amountOfNumsThatWontSolve++;
+                    Debug.LogWarning("ignore this");
+                }
+                else if (dividedResults % 0.05m == 0)
+                {
+                    Debug.LogWarning("this number is able to be divided " + item);
+                    ListOfWins.Remove(item);
+                    ListOfWins.Add(item);
+                    NeedsToResolve = false;
+                    return;
+                }
+                else
+                {
+                    Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
+                    amountOfNumsThatWontSolve++;
+                    Debug.LogWarning("attemps so far " + amountOfNumsThatWontSolve + " count of list " + ListOfWins.Count);
+                    ListOfWins.Remove(item);
+                    ListOfWins.Insert(0, item);
+                }
+
+                if (amountOfNumsThatWontSolve == ListOfWins.Count)
+                {
+                    Debug.Log("if it crashes it will here " + amountOfNumsThatWontSolve + " then this " + ListOfWins.Count);
+                    NeedsToResolve = true;
+                    FailedAttempts = 0;
+                    AttemptsToSolve = 0;
+                    SolveTurn();
+                }
+                //resolve here.
+            }
+        else
+            Debug.Log("Did not win chest");
+    }
+
+
     /// <summary>
     /// Function to restart game solvers vars
     /// </summary>
@@ -154,5 +204,6 @@ public class GameSolver : MonoBehaviour
         FailedAttempts = 0;
         TotalWinBoxAmount = 0;
         IsUsingFeature = false;
+        NeedsToResolve = false;
     }
 }

@@ -77,14 +77,14 @@ public class MultiplierChestFeature : MonoBehaviour
             Debug.Log("dont give chest its less than five");
         }
 
-        AddingAndOrgainzingChestInList();
+        AddAndOrgainzingFeatureChestInList();
     }
 
     /// <summary>
     /// Adds a chest or more depending on what percentage was won the shuffles the board and adds back odd numbers.
     /// </summary>
     /// 
-    private void AddingAndOrgainzingChestInList()
+    public void AddAndOrgainzingFeatureChestInList()
     {
         GameSolver.Instance.ListOfWins.Sort();
        
@@ -100,68 +100,12 @@ public class MultiplierChestFeature : MonoBehaviour
                 GameSolver.Instance.ListOfWins.Insert(index, Chests);
                 Debug.Log("place chest in this index " + index);
             }
-            TakeOddNumsAndMoveToFront();
         }
         else
         {
             Debug.Log("player did not win any chest. No Chest are added");
         }
 
-    }
-    /// <summary>
-    /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
-    /// </summary>
-    private void TakeOddNumsAndMoveToFront()
-    {
-        /*
-        OddNums = new List<decimal>();
-        //take out odd nums
-        foreach (decimal Nums in GameSolver.Instance.ListOfWins.ToList())
-        {
-            if (Nums == 0)
-                Debug.Log("do nothing");
-            if (Nums % 2 == 1)
-            {
-                Debug.Log("odd num is " + Nums);
-                OddNums.Add(Nums);
-                GameSolver.Instance.ListOfWins.Remove(Nums);
-            }
-        }
-        // add back to list.
-        foreach (decimal oddNuM in OddNums.ToList())
-        {
-            GameSolver.Instance.ListOfWins.Insert(0, oddNuM);
-            OddNums.Remove(oddNuM);
-            Debug.Log("add this back to the list. " + oddNuM);
-        }
-        */
-        foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
-        {
-            decimal dividedResults = item / 8;
-
-            if (item == -1)
-                Debug.LogWarning("ignore this");
-            else if (dividedResults % 0.05m == 0)
-            {
-                Debug.LogWarning("this number is able to be divided " + item);
-                GameSolver.Instance.ListOfWins.Remove(item);
-                GameSolver.Instance.ListOfWins.Add(item);
-                return;
-            }
-            else
-            {
-                Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
-                GameSolver.Instance.ListOfWins.Remove(item);
-                GameSolver.Instance.ListOfWins.Insert(0, item);
-            }
-                
-            //resolve here.
-        }
-        //debuging purposes
-        foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
-        {
-            Debug.Log("List items = " + item);
-        }
     }
    
     /// <summary>

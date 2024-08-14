@@ -10,7 +10,7 @@ public class GameMain : MonoBehaviour
     [Header("Scripts")]
     public UIBehaviour UIBehaviour;
     public ChoosingAMult ChoosingAMult;
-    public MultiplierChestFeature RandomNumOfChests;
+    public MultiplierChestFeature MultChestFeatureRef;
     public DenominationController DenomController;
     public ChestController ChestsController;
 
@@ -55,8 +55,10 @@ public class GameMain : MonoBehaviour
         else//If not, Solve the turn and see if they get a feature chest as well
         {
             Debug.Log("Winning turn");
+            GameSolver.Instance.PlayerWinAmount = (float)ChoosingAMult.ChoosenMult * (float)DenomController.CurrentDenom;// Multiply the mult with the current denom to get the player win amount
+            MultChestFeatureRef.RandomPercentageOfFeature();
             GameSolver.Instance.SolveTurn();
-            RandomNumOfChests.RandomPercentageOfFeature();
+          
             GameSolver.Instance.ListOfWins.Add(0);
             //remember to delete this below before sending its just for testing
             foreach (decimal item in GameSolver.Instance.ListOfWins)
