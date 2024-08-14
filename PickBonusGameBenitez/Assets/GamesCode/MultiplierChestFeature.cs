@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MultiplierChestFeature : MonoBehaviour
 {
+    [Header("Indexs")]
     public int FeatureMult = 0;
     public int ChestIndex = 0;
 
@@ -112,6 +113,7 @@ public class MultiplierChestFeature : MonoBehaviour
     /// </summary>
     private void TakeOddNumsAndMoveToFront()
     {
+        /*
         OddNums = new List<decimal>();
         //take out odd nums
         foreach (decimal Nums in GameSolver.Instance.ListOfWins.ToList())
@@ -131,6 +133,29 @@ public class MultiplierChestFeature : MonoBehaviour
             GameSolver.Instance.ListOfWins.Insert(0, oddNuM);
             OddNums.Remove(oddNuM);
             Debug.Log("add this back to the list. " + oddNuM);
+        }
+        */
+        foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
+        {
+            decimal dividedResults = item / 8;
+
+            if (item == -1)
+                Debug.LogWarning("ignore this");
+            else if (dividedResults % 0.05m == 0)
+            {
+                Debug.LogWarning("this number is able to be divided " + item);
+                GameSolver.Instance.ListOfWins.Remove(item);
+                GameSolver.Instance.ListOfWins.Add(item);
+                return;
+            }
+            else
+            {
+                Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
+                GameSolver.Instance.ListOfWins.Remove(item);
+                GameSolver.Instance.ListOfWins.Insert(0, item);
+            }
+                
+            //resolve here.
         }
         //debuging purposes
         foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
