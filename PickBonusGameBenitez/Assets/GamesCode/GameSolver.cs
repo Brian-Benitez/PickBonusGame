@@ -32,6 +32,7 @@ public class GameSolver : MonoBehaviour
     [Header("Nums for safety net")]
     public int FailedAttempts;
     public int MaxOfTriesLeft;
+    public int MaxTriesToResolve;
 
     [Header("Scripts")]
     public DenominationController DenomController;
@@ -61,6 +62,19 @@ public class GameSolver : MonoBehaviour
         FailedAttempts = 0;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FailedAttempts = 0;
+            AttemptsToSolve = 0;
+            ListOfWins.Clear();
+            ListOfWins = new List<decimal>();
+            SolveTurn();
+            Debug.LogWarning("?????");
+        }
+    }
+
 
     /// <summary>
     /// This function divides up wins for the player to receive then adds it to the list of wins.
@@ -76,7 +90,7 @@ public class GameSolver : MonoBehaviour
             _numbersToDivideBy.AddRange(EvenNumsToDivdeBy);
         else
         _numbersToDivideBy.AddRange(OddEvenNumsToDivideBy);
-
+        
         for (int i = 0; i < AttemptsToSolve; i++)
         {
             do
@@ -95,7 +109,7 @@ public class GameSolver : MonoBehaviour
             ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list
 
             //AmountChecker();//Make sure it fits in the list of wins
-
+            Debug.LogWarning("do we get here");
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
@@ -158,13 +172,7 @@ public class GameSolver : MonoBehaviour
             foreach (decimal item in ListOfWins.ToList())
             {
                 decimal dividedResults = item / 8;
-                /* we wanna not have this check, we wanna add chest once everything is good to go..
-                if (item == -1)
-                {
-                    amountOfNumsThatWontSolve++;
-                    Debug.LogWarning("ignore this");
-                }
-                */
+
                 if (dividedResults % 0.05m == 0)
                 {
                     Debug.LogWarning("this number is able to be divided " + item);
@@ -187,16 +195,17 @@ public class GameSolver : MonoBehaviour
                     Debug.Log("if it crashes it will here " + amountOfNumsThatWontSolve + " then this " + ListOfWins.Count);
                     NeedsToResolve = true;
                     Debug.LogWarning("NNEEEDS TO RESOLVE");
-                    //FailedAttempts = 0;
-                    //AttemptsToSolve = 0;
                 }
             }
         }
         else
-            Debug.Log("Did not win chest");
+            Debug.LogWarning("Did not win chest");
     }
 
-
+    public void ResolveCheck()
+    {
+        
+    }
     /// <summary>
     /// Function to restart game solvers vars
     /// </summary>
