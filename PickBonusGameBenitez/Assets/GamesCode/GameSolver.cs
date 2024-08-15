@@ -68,7 +68,7 @@ public class GameSolver : MonoBehaviour
     public void SolveTurn()
     {
         float dividedWinAmount = 0;
-        Debug.Log("heres the final amount times the denom " + PlayerWinAmount);
+        Debug.Log("Target Win Amount: " + PlayerWinAmount);
 
         _numbersToDivideBy.Clear();
 
@@ -95,8 +95,7 @@ public class GameSolver : MonoBehaviour
             ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list
 
             //AmountChecker();//Make sure it fits in the list of wins
-            Debug.LogWarning("does this get reached?");
-            CheckListForEligibilityOfFeature();
+
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
@@ -151,20 +150,22 @@ public class GameSolver : MonoBehaviour
     /// <summary>
     /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
     /// </summary>
-    private void CheckListForEligibilityOfFeature()
+    public void CheckListForEligibilityOfFeature()
     {
         int amountOfNumsThatWontSolve = 0;
         if (MultChestFeatureRef.WonChest)
+        {
             foreach (decimal item in ListOfWins.ToList())
             {
                 decimal dividedResults = item / 8;
-
+                /* we wanna not have this check, we wanna add chest once everything is good to go..
                 if (item == -1)
                 {
                     amountOfNumsThatWontSolve++;
                     Debug.LogWarning("ignore this");
                 }
-                else if (dividedResults % 0.05m == 0)
+                */
+                if (dividedResults % 0.05m == 0)
                 {
                     Debug.LogWarning("this number is able to be divided " + item);
                     ListOfWins.Remove(item);
@@ -185,12 +186,12 @@ public class GameSolver : MonoBehaviour
                 {
                     Debug.Log("if it crashes it will here " + amountOfNumsThatWontSolve + " then this " + ListOfWins.Count);
                     NeedsToResolve = true;
-                    FailedAttempts = 0;
-                    AttemptsToSolve = 0;
-                    SolveTurn();
+                    Debug.LogWarning("NNEEEDS TO RESOLVE");
+                    //FailedAttempts = 0;
+                    //AttemptsToSolve = 0;
                 }
-                //resolve here.
             }
+        }
         else
             Debug.Log("Did not win chest");
     }

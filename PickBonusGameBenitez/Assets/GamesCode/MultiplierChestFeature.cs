@@ -76,8 +76,6 @@ public class MultiplierChestFeature : MonoBehaviour
             WonChest = false;
             Debug.Log("dont give chest its less than five");
         }
-
-        AddAndOrgainzingFeatureChestInList();
     }
 
     /// <summary>
@@ -95,7 +93,7 @@ public class MultiplierChestFeature : MonoBehaviour
 
             foreach (int Chests in ChestWon)
             {
-                int index = Random.Range(0, GameSolver.Instance.ListOfWins.Count - 1);
+                int index = Random.Range(1, GameSolver.Instance.ListOfWins.Count - 1);
                 Debug.Log("index is " + index);
                 GameSolver.Instance.ListOfWins.Insert(index, Chests);
                 Debug.Log("place chest in this index " + index);
