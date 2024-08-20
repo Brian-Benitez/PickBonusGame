@@ -24,15 +24,14 @@ public class GameSolver : MonoBehaviour
 
     [Header("Booleans")]
     public bool IsUsingFeature;
-    public bool NeedsToResolve;
+    public bool NeedsToResolveForFeature;
 
     [Header("Solver info")]
-    public int AttemptsToSolve;
+    public int MaxAttemptsToSolve;
 
     [Header("Nums for safety net")]
-    public int FailedAttempts;
-    public int MaxOfTriesLeft;
-    public int MaxTriesToResolve;
+    public int FailedSolvedAttempts;
+    public int MaxAmountOfResolves;
 
     [Header("Scripts")]
     public DenominationController DenomController;
@@ -59,7 +58,8 @@ public class GameSolver : MonoBehaviour
     private void Start()
     {
         DenomController.CurrentDenom = 1m;
-        FailedAttempts = 0;
+        FailedSolvedAttempts = 0;
+        NeedsToResolveForFeature = false;
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public class GameSolver : MonoBehaviour
         else
         _numbersToDivideBy.AddRange(OddEvenNumsToDivideBy);
         
-        for (int i = 0; i < AttemptsToSolve; i++)
+        for (int i = 0; i < MaxAttemptsToSolve; i++)
         {
             do
             {
@@ -97,10 +97,11 @@ public class GameSolver : MonoBehaviour
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
+                Debug.Log("we check if the list is good and if it needs to get checked");
+                CheckListForEligibilityOfFeature();
                 return;
             }
         }
-        Debug.Log("checlk me out");
     }
     /// <summary>
     /// Checks to see if the full sum of numbers won adds up to the right win amount.
@@ -123,10 +124,10 @@ public class GameSolver : MonoBehaviour
             ListOfWins.RemoveAt(ListOfWins.Count - 1);
             Debug.Log("Number is too big for list" + " this is the list " + ListOfWins.Sum());
 
-            FailedAttempts++;
-            Debug.Log("attempts made " + FailedAttempts);
+            FailedSolvedAttempts++;
+            Debug.Log("attempts made " + FailedSolvedAttempts);
 
-            if (FailedAttempts == MaxOfTriesLeft)
+            if (FailedSolvedAttempts == MaxAmountOfResolves)
             {
                 GiveLeftOverWinAmountToPlayer();
                 Debug.Log("give player leftovers");
@@ -163,7 +164,7 @@ public class GameSolver : MonoBehaviour
                     Debug.LogWarning("this number is able to be divided " + item);
                     ListOfWins.Remove(item);
                     ListOfWins.Add(item);
-                    NeedsToResolve = false;
+                    NeedsToResolveForFeature = false;
                     return;
                 }
                 else
@@ -177,12 +178,11 @@ public class GameSolver : MonoBehaviour
 
                 if (amountOfNumsThatWontSolve == ListOfWins.Count)
                 {
-                    Debug.Log("if it crashes it will here " + amountOfNumsThatWontSolve + " then this " + ListOfWins.Count);
-                    NeedsToResolve = true;
+                    Debug.Log("It needs to resolve! needs to resolve for feature is " + NeedsToResolveForFeature);
+                    NeedsToResolveForFeature = true;
                     ListOfWins = new List<decimal>();
-                    FailedAttempts = 0;
+                    FailedSolvedAttempts = 0;
                     SolveTurn();
-                    Debug.LogWarning("GOING TO RESOLVE NOW");
                 }
             }
         }
@@ -195,9 +195,9 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     public void RestartGameSolver()
     {
-        FailedAttempts = 0;
+        FailedSolvedAttempts = 0;
         TotalWinBoxAmount = 0;
         IsUsingFeature = false;
-        NeedsToResolve = false;
+        NeedsToResolveForFeature = false;
     }
 }

@@ -58,7 +58,6 @@ public class GameMain : MonoBehaviour
             GameSolver.Instance.PlayerWinAmount = (float)ChoosingAMult.ChoosenMult * (float)DenomController.CurrentDenom;// Multiply the mult with the current denom to get the player win amount
             MultChestFeatureRef.RandomPercentageOfFeature();
             GameSolver.Instance.SolveTurn();
-            GameSolver.Instance.CheckListForEligibilityOfFeature();
 
             MultChestFeatureRef.AddAndOrgainzingFeatureChestInList();
             GameSolver.Instance.ListOfWins.Add(0);

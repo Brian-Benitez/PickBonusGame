@@ -272,11 +272,10 @@ MonoBehaviour:
   _numbersToDivideBy: []
   PlayerWinAmount: 0
   IsUsingFeature: 0
-  NeedsToResolve: 0
-  AttemptsToSolve: 7
-  FailedAttempts: 0
-  MaxOfTriesLeft: 2
-  MaxTriesToResolve: 7
+  NeedsToResolveForFeature: 0
+  MaxAttemptsToSolve: 8
+  FailedSolvedAttempts: 0
+  MaxAmountOfResolves: 2
   DenomController: {fileID: 1387410457}
   UIBehaviour: {fileID: 645076622}
   ChoosingAMult: {fileID: 1974110052}
