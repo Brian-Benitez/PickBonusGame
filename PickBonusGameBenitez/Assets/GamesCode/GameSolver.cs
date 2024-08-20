@@ -62,20 +62,6 @@ public class GameSolver : MonoBehaviour
         FailedAttempts = 0;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            FailedAttempts = 0;
-            AttemptsToSolve = 0;
-            ListOfWins.Clear();
-            ListOfWins = new List<decimal>();
-            SolveTurn();
-            Debug.LogWarning("?????");
-        }
-    }
-
-
     /// <summary>
     /// This function divides up wins for the player to receive then adds it to the list of wins.
     /// </summary>
@@ -108,14 +94,13 @@ public class GameSolver : MonoBehaviour
             Debug.Log("formated " + dividedWinAmount.ToString("#.##"));
             ListOfWins.Add((decimal)dividedWinAmount);//Add it to the list
 
-            //AmountChecker();//Make sure it fits in the list of wins
-            Debug.LogWarning("do we get here");
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
                 return;
             }
         }
+        Debug.Log("checlk me out");
     }
     /// <summary>
     /// Checks to see if the full sum of numbers won adds up to the right win amount.
@@ -194,7 +179,10 @@ public class GameSolver : MonoBehaviour
                 {
                     Debug.Log("if it crashes it will here " + amountOfNumsThatWontSolve + " then this " + ListOfWins.Count);
                     NeedsToResolve = true;
-                    Debug.LogWarning("NNEEEDS TO RESOLVE");
+                    ListOfWins = new List<decimal>();
+                    FailedAttempts = 0;
+                    SolveTurn();
+                    Debug.LogWarning("GOING TO RESOLVE NOW");
                 }
             }
         }
@@ -202,10 +190,6 @@ public class GameSolver : MonoBehaviour
             Debug.LogWarning("Did not win chest");
     }
 
-    public void ResolveCheck()
-    {
-        
-    }
     /// <summary>
     /// Function to restart game solvers vars
     /// </summary>
