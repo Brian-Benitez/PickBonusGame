@@ -109,7 +109,6 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private bool AmountChecker()
     {
-
         if (ListOfWins.Sum() == (decimal)PlayerWinAmount)
         {
             Debug.Log("done");
@@ -148,6 +147,23 @@ public class GameSolver : MonoBehaviour
     }
 
     /// <summary>
+    /// This function checks if the player has a certain denom, mult and has won chest so it can be granted 40 cents. Then it goes to solve again. This is for a edge case...
+    /// </summary>
+    private void GiveFortyCents()
+    {
+        if(MultChestFeatureRef.WonChest && DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
+        {
+            /*
+            ListOfWins = new List<decimal>();
+            FailedSolvedAttempts = 0;
+            decimal fortyCents = 0.40m;
+            ListOfWins.Add(fortyCents);
+            SolveTurn();
+            */
+            Debug.Log("added forty cents and has checked off every check to obtain this");
+        }
+    }
+    /// <summary>
     /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
     /// </summary>
     public void CheckListForEligibilityOfFeature()
@@ -180,9 +196,7 @@ public class GameSolver : MonoBehaviour
                 {
                     Debug.Log("It needs to resolve! needs to resolve for feature is " + NeedsToResolveForFeature);
                     NeedsToResolveForFeature = true;
-                    ListOfWins = new List<decimal>();
-                    FailedSolvedAttempts = 0;
-                    SolveTurn();
+                    // may not need this... bool
                 }
             }
         }
