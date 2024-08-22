@@ -24,7 +24,6 @@ public class GameSolver : MonoBehaviour
 
     [Header("Booleans")]
     public bool IsUsingFeature;
-    public bool NeedsToResolveForFeature;
 
     [Header("Solver info")]
     public int MaxAttemptsToSolve;
@@ -59,7 +58,6 @@ public class GameSolver : MonoBehaviour
     {
         DenomController.CurrentDenom = 1m;
         FailedSolvedAttempts = 0;
-        NeedsToResolveForFeature = false;
     }
 
     /// <summary>
@@ -151,15 +149,14 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private void GiveFortyCents()
     {
-        if(MultChestFeatureRef.WonChest && DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
+        if(DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
         {
-            /*
             ListOfWins = new List<decimal>();
             FailedSolvedAttempts = 0;
             decimal fortyCents = 0.40m;
             ListOfWins.Add(fortyCents);
             SolveTurn();
-            */
+            CheckListForEligibilityOfFeature();
             Debug.Log("added forty cents and has checked off every check to obtain this");
         }
     }
@@ -175,12 +172,11 @@ public class GameSolver : MonoBehaviour
             {
                 decimal dividedResults = item / 8;
 
-                if (dividedResults % 0.05m == 0)
+                if (dividedResults % 0.05m == 0)//some number can come through here still... like 1.80 it produces after everything 0.0001125...
                 {
                     Debug.LogWarning("this number is able to be divided " + item);
                     ListOfWins.Remove(item);
                     ListOfWins.Add(item);
-                    NeedsToResolveForFeature = false;
                     return;
                 }
                 else
@@ -194,9 +190,8 @@ public class GameSolver : MonoBehaviour
 
                 if (amountOfNumsThatWontSolve == ListOfWins.Count)
                 {
-                    Debug.Log("It needs to resolve! needs to resolve for feature is " + NeedsToResolveForFeature);
-                    NeedsToResolveForFeature = true;
-                    // may not need this... bool
+                    Debug.Log("This list isnt good");
+                    GiveFortyCents();
                 }
             }
         }
@@ -212,6 +207,5 @@ public class GameSolver : MonoBehaviour
         FailedSolvedAttempts = 0;
         TotalWinBoxAmount = 0;
         IsUsingFeature = false;
-        NeedsToResolveForFeature = false;
     }
 }
