@@ -152,18 +152,17 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private void GiveFortyCents()
     {
-        if (DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
+        ListOfWins = new List<decimal>();
+        ListOfWins.Clear();
+        FailedSolvedAttempts = 0;
+        decimal fortyCents = 0.40m;
+        ListOfWins.Add(fortyCents);
+        foreach (decimal item in ListOfWins.ToList())
         {
-            ListOfWins = new List<decimal>();
-            FailedSolvedAttempts = 0;
-            decimal fortyCents = 0.40m;
-            ListOfWins.Add(fortyCents);
-            SolveTurn();
-            CheckListForEligibilityOfFeature();
-            Debug.Log("added forty cents and has checked off every check to obtain this");
+            Debug.Log("LSIT WINS " + item);
         }
-        else
-            Debug.Log("do not nothing");
+        SolveTurn();
+        Debug.Log("added forty cents and has checked off every check to obtain this");
     }
     /// <summary>
     /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
@@ -176,13 +175,12 @@ public class GameSolver : MonoBehaviour
             foreach (decimal item in ListOfWins.ToList())
             {
                 decimal dividedResults = item / 8;
-
-                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults % 0.05m, 4) == false)
+                Debug.Log("whats the num " + dividedResults);
+                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults, 3) == false)
                 {
-                    Debug.LogWarning("this number is able to be divided " + item);
+                    Debug.LogWarning("this number is able to be divided " + item + " Add last");
                     ListOfWins.Remove(item);
                     ListOfWins.Add(item);
-                    return;
                 }
                 else
                 {
@@ -212,13 +210,17 @@ public class GameSolver : MonoBehaviour
     /// <returns></returns>
     public bool HasMoreThanDecimalPlaces(decimal number, int maxDecimalPlaces)
     {
+        number = number % 0.05m;
+        Debug.LogWarning("tHIS NUMBER IS... " + number);
         // Convert to string and split by decimal point
         string numberString = number.ToString("G17");
         if (numberString.Contains("."))
         {
             int decimalPlaces = numberString.Split('.')[1].Length;
+            Debug.Log("ITS Wont work");
             return decimalPlaces > maxDecimalPlaces;
         }
+        Debug.Log("should be fine " + number);
         return false;
     }
     /// <summary>
