@@ -134,6 +134,9 @@ public class GameSolver : MonoBehaviour
 
         return false;
     }
+
+    //All functions below are helping functions! ---------------------------------------------------------------->
+
     /// <summary>
     /// This function just does the math to give to the player in case they do not get the full win amount.
     /// </summary>
@@ -149,7 +152,7 @@ public class GameSolver : MonoBehaviour
     /// </summary>
     private void GiveFortyCents()
     {
-        if(DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
+        if (DenomController.CurrentDenom < .50m && ChoosingAMult.ChoosenMult < 10)
         {
             ListOfWins = new List<decimal>();
             FailedSolvedAttempts = 0;
@@ -159,6 +162,8 @@ public class GameSolver : MonoBehaviour
             CheckListForEligibilityOfFeature();
             Debug.Log("added forty cents and has checked off every check to obtain this");
         }
+        else
+            Debug.Log("do not nothing");
     }
     /// <summary>
     /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
@@ -172,7 +177,7 @@ public class GameSolver : MonoBehaviour
             {
                 decimal dividedResults = item / 8;
 
-                if (dividedResults % 0.05m == 0)//some number can come through here still... like 1.80 it produces after everything 0.0001125...
+                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults % 0.05m, 4) == false)
                 {
                     Debug.LogWarning("this number is able to be divided " + item);
                     ListOfWins.Remove(item);
@@ -199,6 +204,23 @@ public class GameSolver : MonoBehaviour
             Debug.LogWarning("Did not win chest");
     }
 
+    /// <summary>
+    /// This checks if the number that is given has a certain amount of decimal places in it, if its more than 4, do not use it in the list of wins.
+    /// </summary>
+    /// <param name="number"></param>
+    /// <param name="maxDecimalPlaces"></param>
+    /// <returns></returns>
+    public bool HasMoreThanDecimalPlaces(decimal number, int maxDecimalPlaces)
+    {
+        // Convert to string and split by decimal point
+        string numberString = number.ToString("G17");
+        if (numberString.Contains("."))
+        {
+            int decimalPlaces = numberString.Split('.')[1].Length;
+            return decimalPlaces > maxDecimalPlaces;
+        }
+        return false;
+    }
     /// <summary>
     /// Function to restart game solvers vars
     /// </summary>
