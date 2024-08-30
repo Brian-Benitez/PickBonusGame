@@ -174,21 +174,25 @@ public class GameSolver : MonoBehaviour
         {
             foreach (decimal item in ListOfWins.ToList())
             {
+                if(item == -1)
+                    amountOfNumsThatWontSolve++;
+
                 decimal dividedResults = item / 8;
                 Debug.Log("whats the num " + dividedResults);
-                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults, 3) == false)
+
+                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults, 2) == false && item != -1)
                 {
                     Debug.LogWarning("this number is able to be divided " + item + " Add last");
                     ListOfWins.Remove(item);
                     ListOfWins.Add(item);
                 }
-                else
+                else if(item != -1)
                 {
                     Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
-                    amountOfNumsThatWontSolve++;
-                    Debug.LogWarning("attemps so far " + amountOfNumsThatWontSolve + " count of list " + ListOfWins.Count);
                     ListOfWins.Remove(item);
                     ListOfWins.Insert(0, item);
+                    amountOfNumsThatWontSolve++;
+                    Debug.LogWarning("attemps so far " + amountOfNumsThatWontSolve + " count of list " + ListOfWins.Count);
                 }
 
                 if (amountOfNumsThatWontSolve == ListOfWins.Count)
@@ -196,6 +200,12 @@ public class GameSolver : MonoBehaviour
                     Debug.Log("This list isnt good");
                     GiveFortyCents();
                 }
+            }
+            //debuging testing
+
+            foreach (decimal item in ListOfWins.ToList())
+            {
+                Debug.LogWarning("List org nums " + item);
             }
         }
         else
@@ -210,14 +220,15 @@ public class GameSolver : MonoBehaviour
     /// <returns></returns>
     public bool HasMoreThanDecimalPlaces(decimal number, int maxDecimalPlaces)
     {
-        number = number % 0.05m;
         Debug.LogWarning("tHIS NUMBER IS... " + number);
         // Convert to string and split by decimal point
         string numberString = number.ToString("G17");
+        Debug.Log("number string " +  numberString);    
         if (numberString.Contains("."))
         {
             int decimalPlaces = numberString.Split('.')[1].Length;
-            Debug.Log("ITS Wont work");
+            Debug.Log("ITS Wont work " + number);
+            Debug.Log("how many decimals places " + decimalPlaces);
             return decimalPlaces > maxDecimalPlaces;
         }
         Debug.Log("should be fine " + number);

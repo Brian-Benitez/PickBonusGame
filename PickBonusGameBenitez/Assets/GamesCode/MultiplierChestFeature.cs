@@ -84,9 +84,7 @@ public class MultiplierChestFeature : MonoBehaviour
     /// 
     public void AddAndOrgainzingFeatureChestInList()
     {
-        GameSolver.Instance.ListOfWins.Sort();
-       
-        Debug.Log("org the list");
+        Debug.Log("put chest features in list");
         if (WonChest)
         {
             var ChestWon = Enumerable.Repeat(-1, ChestRemaining).ToList();
@@ -98,6 +96,7 @@ public class MultiplierChestFeature : MonoBehaviour
                 GameSolver.Instance.ListOfWins.Insert(index, Chests);
                 Debug.Log("place chest in this index " + index);
             }
+            GameSolver.Instance.CheckListForEligibilityOfFeature();
         }
         else
         {
