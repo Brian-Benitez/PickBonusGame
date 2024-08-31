@@ -21,7 +21,7 @@ public class ChestBehavior : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             return;
         }
-
+       
     }
 
 }

@@ -43,31 +43,28 @@ public class ChestController : MonoBehaviour
             Boxes.GetComponent<Collider>().enabled = true;
         }
     }
+    /// <summary>
+    /// Disables chest for chest feature
+    /// </summary>
     public void DisableCollidersOnChest()
     {
         foreach (LootBox box in LootBoxes)
         {
-            if (box.isOpen)
-            {
-                Debug.Log("do nothing");
-            }
-            else
+            if (box.isOpen == false)
             {
                 box.GetComponent<Collider>().enabled = false;
                 Debug.Log("disable this box");
             }
         }
     }
-
+    /// <summary>
+    /// Enable chest colldiers if there not open
+    /// </summary>
     public void EnableCollidersOnChest()
     {
         foreach (LootBox box in LootBoxes)
         {
-            if (box.isOpen)
-            {
-                //Debug.Log("do nothing");
-            }
-            else
+            if (box.isOpen == false)
             {
                 box.GetComponent<Collider>().enabled = true;
                 Debug.Log("enable this box");

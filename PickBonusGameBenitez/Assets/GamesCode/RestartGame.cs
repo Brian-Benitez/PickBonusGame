@@ -30,7 +30,6 @@ public class RestartGame : MonoBehaviour
         GameMainBool.GameStarts = false;
         PlayerXMult.text = "1X";
         UIBehaviour.WinboxAmountText.text = string.Format("{0:C}", 0);
-
         GameSolver.Instance.RestartGameSolver();
         Mult.RestartChoosingAMult();
         Chests.RestartMultiplierChestFeature();
