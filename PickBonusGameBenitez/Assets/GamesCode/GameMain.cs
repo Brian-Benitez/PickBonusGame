@@ -59,7 +59,9 @@ public class GameMain : MonoBehaviour
             MultChestFeatureRef.RandomPercentageOfFeature();
             GameSolver.Instance.SolveTurn();
 
-            MultChestFeatureRef.AddAndOrgainzingFeatureChestInList();
+            if(MultChestFeatureRef.WonChest)
+                MultChestFeatureRef.AddFeatureChestIntoList();
+
             GameSolver.Instance.ListOfWins.Add(0);
             //remember to delete this below before sending its just for testing
             foreach (decimal item in GameSolver.Instance.ListOfWins)

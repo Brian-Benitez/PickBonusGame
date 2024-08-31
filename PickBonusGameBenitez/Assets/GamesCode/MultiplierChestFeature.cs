@@ -79,30 +79,22 @@ public class MultiplierChestFeature : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds a chest or more depending on what percentage was won the shuffles the board and adds back odd numbers.
+    /// Adds a chest or more depending on what percentage was won.
     /// </summary>
     /// 
-    public void AddAndOrgainzingFeatureChestInList()
+    public void AddFeatureChestIntoList()
     {
-        Debug.Log("put chest features in list");
-        if (WonChest)
-        {
-            var ChestWon = Enumerable.Repeat(-1, ChestRemaining).ToList();
+        Debug.Log("Playing this function AddAndOrgainzingFeatureChestInList()..");
+        var ChestWon = Enumerable.Repeat(-1, ChestRemaining).ToList();
 
-            foreach (int Chests in ChestWon)
-            {
-                int index = Random.Range(1, GameSolver.Instance.ListOfWins.Count - 1);
-                Debug.Log("index is " + index);
-                GameSolver.Instance.ListOfWins.Insert(index, Chests);
-                Debug.Log("place chest in this index " + index);
-            }
-            GameSolver.Instance.CheckListForEligibilityOfFeature();
-        }
-        else
+        foreach (int Chests in ChestWon)
         {
-            Debug.Log("player did not win any chest. No Chest are added");
+            int index = Random.Range(1, GameSolver.Instance.ListOfWins.Count - 1);
+            Debug.Log("index is " + index);
+            GameSolver.Instance.ListOfWins.Insert(index, Chests);
+            Debug.Log("place chest in this index " + index);
         }
-
+        GameSolver.Instance.CheckListForEligibilityOfFeature();
     }
    
     /// <summary>

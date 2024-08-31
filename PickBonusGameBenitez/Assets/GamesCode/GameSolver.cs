@@ -82,7 +82,7 @@ public class GameSolver : MonoBehaviour
                 int index = Random.Range(0, _numbersToDivideBy.Count);//Pick a radom number to divid up the win
                 NewIndex = index;
             }
-            while (NewIndex == OldIndex);//NOTE: IF IT GETS STUCK ITS HERE THIS IS THE ISSUE.
+            while (NewIndex == OldIndex);
             OldIndex = NewIndex;
             
             Debug.Log("the number to divde by: " + _numbersToDivideBy[NewIndex]);
@@ -95,8 +95,9 @@ public class GameSolver : MonoBehaviour
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
-                Debug.Log("we check if the list is good and if it needs to get checked");
-                CheckListForEligibilityOfFeature();
+                Debug.Log("we check if the list is good for a feature");
+                if (MultChestFeatureRef.WonChest)
+                    CheckListForEligibilityOfFeature();
                 return;
             }
         }
@@ -148,7 +149,7 @@ public class GameSolver : MonoBehaviour
     }
 
     /// <summary>
-    /// This function checks if the player has a certain denom, mult and has won chest so it can be granted 40 cents. Then it goes to solve again. This is for a edge case...
+    /// Grants 40 cents, Then it goes to solve again. This is for a edge case...
     /// </summary>
     private void GiveFortyCents()
     {
@@ -157,59 +158,44 @@ public class GameSolver : MonoBehaviour
         FailedSolvedAttempts = 0;
         decimal fortyCents = 0.40m;
         ListOfWins.Add(fortyCents);
-        foreach (decimal item in ListOfWins.ToList())
-        {
-            Debug.Log("LSIT WINS " + item);
-        }
         SolveTurn();
         Debug.Log("added forty cents and has checked off every check to obtain this");
     }
     /// <summary>
-    /// Takes out odd numbers in the list and readds them back in front of the list before a chest opening.
+    /// Checks to see if the numbers in the list will work for a feature chest win and if they are divisible by 0.05 and can be divided by 8.
     /// </summary>
     public void CheckListForEligibilityOfFeature()
     {
         int amountOfNumsThatWontSolve = 0;
-        if (MultChestFeatureRef.WonChest)
+        foreach (decimal item in ListOfWins.ToList())
         {
-            foreach (decimal item in ListOfWins.ToList())
+            if (item == -1)// checks if its a feature chest, if is tally up that var because its not a real number in the list
+                amountOfNumsThatWontSolve++;
+
+            decimal dividedResults = item / 8;
+            Debug.Log("whats the num " + dividedResults);
+            // checks if its divisible by 0.05, has max of 2 decimal points and its not -1
+            if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults, 2) == false && item != -1)
             {
-                if(item == -1)
-                    amountOfNumsThatWontSolve++;
-
-                decimal dividedResults = item / 8;
-                Debug.Log("whats the num " + dividedResults);
-
-                if (dividedResults % 0.05m == 0 && HasMoreThanDecimalPlaces(dividedResults, 2) == false && item != -1)
-                {
-                    Debug.LogWarning("this number is able to be divided " + item + " Add last");
-                    ListOfWins.Remove(item);
-                    ListOfWins.Add(item);
-                }
-                else if(item != -1)
-                {
-                    Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
-                    ListOfWins.Remove(item);
-                    ListOfWins.Insert(0, item);
-                    amountOfNumsThatWontSolve++;
-                    Debug.LogWarning("attemps so far " + amountOfNumsThatWontSolve + " count of list " + ListOfWins.Count);
-                }
-
-                if (amountOfNumsThatWontSolve == ListOfWins.Count)
-                {
-                    Debug.Log("This list isnt good");
-                    GiveFortyCents();
-                }
+                Debug.LogWarning("this number is able to be divided " + item + " Add last");
+                ListOfWins.Remove(item);
+                ListOfWins.Add(item);
             }
-            //debuging testing
-
-            foreach (decimal item in ListOfWins.ToList())
+            else if (item != -1)// checks if its its not -1 and is also a number that cant be divided well
             {
-                Debug.LogWarning("List org nums " + item);
+                Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
+                ListOfWins.Remove(item);
+                ListOfWins.Insert(0, item);
+                amountOfNumsThatWontSolve++;
+                Debug.LogWarning("attemps so far " + amountOfNumsThatWontSolve + " count of list " + ListOfWins.Count);
+            }
+
+            if (amountOfNumsThatWontSolve == ListOfWins.Count)//sees if the whole list cannot be used.
+            {
+                Debug.Log("This list isnt good");
+                GiveFortyCents();
             }
         }
-        else
-            Debug.LogWarning("Did not win chest");
     }
 
     /// <summary>
