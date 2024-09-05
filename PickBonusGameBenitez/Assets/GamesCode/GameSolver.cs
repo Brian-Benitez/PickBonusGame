@@ -95,9 +95,6 @@ public class GameSolver : MonoBehaviour
             if (AmountChecker())//If amount checker is true stop solving
             {
                 Debug.Log("Stop solving, the list of wins is full and ready");
-                Debug.Log("we check if the list is good for a feature");
-                if (MultChestFeatureRef.WonChest)
-                    CheckListForEligibilityOfFeature();
                 return;
             }
         }
@@ -159,6 +156,7 @@ public class GameSolver : MonoBehaviour
         decimal fortyCents = 0.40m;
         ListOfWins.Add(fortyCents);
         SolveTurn();
+        MultChestFeatureRef.AddFeatureChestIntoList();
         Debug.Log("added forty cents and has checked off every check to obtain this");
     }
     /// <summary>
@@ -181,7 +179,7 @@ public class GameSolver : MonoBehaviour
                 ListOfWins.Remove(item);
                 ListOfWins.Add(item);
             }
-            else if (item != -1)// checks if its its not -1 and is also a number that cant be divided well
+            else if (item != -1)// checks if its not -1 and is also a number that cant be divided well
             {
                 Debug.LogWarning("this number is NOT able to be divdied " + item + "MOVE TO FRONT!! ");
                 ListOfWins.Remove(item);

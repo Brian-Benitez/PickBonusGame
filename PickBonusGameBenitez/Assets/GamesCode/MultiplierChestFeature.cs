@@ -94,7 +94,9 @@ public class MultiplierChestFeature : MonoBehaviour
             GameSolver.Instance.ListOfWins.Insert(index, Chests);
             Debug.Log("place chest in this index " + index);
         }
-        GameSolver.Instance.CheckListForEligibilityOfFeature();
+
+        if(DenominationController.CurrentDenom < .50m)
+            GameSolver.Instance.CheckListForEligibilityOfFeature();
     }
    
     /// <summary>
