@@ -27,6 +27,7 @@ public class MultiplierChestFeature : MonoBehaviour
     [Header("Scripts")]
     public ChoosingAMult ChoosingAMult;
     public DenominationController DenominationController;
+    public RearrangeList RearrangeListRef;
 
     /// <summary>
     /// Spits out a random number to see if the player is granted a Multiper Feature.
@@ -95,8 +96,8 @@ public class MultiplierChestFeature : MonoBehaviour
             Debug.Log("place chest in this index " + index);
         }
 
-        if(DenominationController.CurrentDenom < .50m)
-            GameSolver.Instance.CheckListForEligibilityOfFeature();
+        if (DenominationController.CurrentDenom < .50m)
+            RearrangeListRef.CheckListForEligibilityOfFeature();
     }
    
     /// <summary>
