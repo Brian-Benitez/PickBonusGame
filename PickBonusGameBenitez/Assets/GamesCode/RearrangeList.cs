@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RearrangeList : MonoBehaviour
@@ -10,7 +11,7 @@ public class RearrangeList : MonoBehaviour
     public void CheckListForEligibilityOfFeature()
     {
         int amountOfNumsThatWontSolve = 0;
-        foreach (decimal item in GameSolver.Instance.ListOfWins)
+        foreach (decimal item in GameSolver.Instance.ListOfWins.ToList())
         {
             if (item == -1)// checks if its a feature chest, if is tally up that var because its not a real number in the list
                 amountOfNumsThatWontSolve++;
