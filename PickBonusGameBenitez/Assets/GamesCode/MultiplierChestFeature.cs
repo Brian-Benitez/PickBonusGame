@@ -34,10 +34,7 @@ public class MultiplierChestFeature : MonoBehaviour
     /// </summary>
     public void RandomPercentageOfFeature()
     {
-        //testing shit rn
-        //FeaturePercent = 90;
-        //FeaturePercent = Random.Range(0, 100);
-        FeaturePercent = 60;
+        FeaturePercent = Random.Range(0, 100);
         Debug.Log("feature percent " + FeaturePercent);
 
         if (ChoosingAMult.ChoosenMult >= 5)//If the mult is greater than 5 then the player can win a feature chest.

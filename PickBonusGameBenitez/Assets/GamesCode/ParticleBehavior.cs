@@ -9,7 +9,7 @@ public class ParticleBehavior : MonoBehaviour
     [Header("Particles")]
     public List<ParticleSystem> TwoXParticles;
     public List<ParticleSystem> FourXParticles;
-    //public List<ParticleSystem> EightXParticles;
+    public List<ParticleSystem> EightXParticles;
 
     [Header("Scripts")]
     public MultiplierChestFeature NumOfChests;
@@ -35,7 +35,7 @@ public class ParticleBehavior : MonoBehaviour
         else if (NumOfChests.FeatureMultsTierList[index] == 8)
         {
             FourXParticles.ToList().ForEach(FourXParticle => { FourXParticle.gameObject.SetActive(false); FourXParticle.Pause(); });
-            //EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(true); y.Play(); });
+            EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(true); y.Play(); });
             Debug.Log("____particle play");
         }
     }
@@ -47,6 +47,6 @@ public class ParticleBehavior : MonoBehaviour
 
         FourXParticles.ToList().ForEach(h => { h.gameObject.SetActive(false); h.Pause(); });
 
-        ///EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(false); y.Pause(); });
+        EightXParticles.ToList().ForEach(y => { y.gameObject.SetActive(false); y.Pause(); });
     }
 }
